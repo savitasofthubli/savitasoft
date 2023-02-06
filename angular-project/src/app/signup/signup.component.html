@@ -1,0 +1,38 @@
+
+  <section class="main">
+    <div class="pic">
+      <img src="../../assets/computer edu.jpg">
+    </div>  
+
+
+    <div class="register ">
+      <h4>Welcome!</h4><br>
+      <h2>Sign up</h2><br>
+        <form #f="ngForm" (ngSubmit)="onsignup(f.value)">
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Name</label>
+                <input ngModel type="text" class="form-control" id="exampleInputName"  name="name">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputNum" class="form-label" >Phone Number</label>
+                <input ngModel type="text" class="form-control" id="exampleInputNum" name="phonenumber">
+              </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label" >Email address</label>
+              <input ngModel type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label" >Password</label>
+              <input ngModel type="password" class="form-control" id="exampleInputPassword1"name="password">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword2" class="form-label" >Confirm Password</label>
+                <input ngModel type="password" class="form-control" id="exampleInputPassword2"name="confirm">
+              </div>
+              <br>
+              <button type="submit" class="btn btn-warning col-lg-12">Create an Account</button>
+              <br>
+          </form>
+    </div>
+  </section>
+

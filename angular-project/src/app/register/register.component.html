@@ -1,0 +1,48 @@
+<section class="main">
+  <div class="register ">
+    <h4>Welcome!</h4><br>
+    <h2>Register Now!</h2><br>
+      <form [formGroup]="form" #f="ngForm" (ngSubmit)="onregister(f.value)">
+        <div (ngsubmit)="onregister(f.value)" class="alert alert-success">Registered Successfully!!</div>
+          <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input  formControlName="name" type="text" class="form-control" id="exampleInputName"  name="name">
+              <div *ngIf="(form.get('name').touched || form.get('name').dirty) && form.get('name').invalid">
+                <div class="alert alert-danger" *ngIf="form.get('name').errors?.['required']">Name is required</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="phonenumber" class="form-label" >Phone Number</label>
+              <input formControlName="phonenumber" type="text" class="form-control" id="exampleInputNum" name="phonenumber">
+              <div  *ngIf="(form.get('phonenumber').touched || form.get('phonenumber').dirty) && form.get('phonenumber').invalid">
+              <div class="alert alert-danger" *ngIf="form.get('phonenumber').errors?.['required']">Phone Number is required</div>
+              <div class="alert alert-danger" *ngIf="form.get('phonenumber').errors?.['pattern']">Enter valid 10 digit phone number.</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label" >Email address</label>
+            <input  formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            <div  *ngIf="(form.get('email').touched || form.get('email').dirty) && form.get('email').invalid">
+               <div class="alert alert-danger" *ngIf="form.get('email').errors?.['required']">Email is required</div>
+               <div class="alert alert-danger" *ngIf="form.get('email').errors?.['email']">Enter valid email-id.</div>
+            </div>
+        </div>
+
+          <div formGroupName="course">
+          <div class="mb-3 form-group">
+            <label for="cid" class="form-label">Courses</label>
+            <select formControlName="cid" name="cid" id="cid" class="form-control">
+                <option>--Select--</option>
+                <option *ngFor="let c of register" value="{{c.cid}}">{{c.cname}}</option>
+            </select>
+          </div>
+        </div>
+          
+            <br>
+            <button type="submit" class="btn btn-warning col-lg-12" [disabled]="form.invalid" >Register</button>
+            <br>
+        </form>
+  </div>
+
+</section>

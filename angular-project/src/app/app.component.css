@@ -1,0 +1,35 @@
+.navbar.fixed-top {
+    position: fixed;
+    top: 0;
+}
+
+.navbar{
+    position: relative;
+    background:dark; 
+    border-bottom: 1cm;
+    border-color: black; 
+}
+.container-fluid
+{
+    font-size: 18px;
+    
+}
+.navbar-nav .nav-link:hover
+{
+   color: black;
+   font-weight: bold;
+}
+
+.navbar-brand img{
+    width: 200px;
+    
+}
+
+.nav-link{
+    color: black;
+}
+
+h5{
+    font-weight: bold;
+}
+
