@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SavitaSoftApplication {
+public class Maven1Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SavitaSoftApplication.class, args);
+		SpringApplication.run(Maven1Application.class, args);
 	}
 
 }
