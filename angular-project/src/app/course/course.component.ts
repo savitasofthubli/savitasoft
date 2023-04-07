@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SavitasoftService } from '../savitasoft.service';
+import { SavitasoftService } from '../services/savitasoft.service';
+import { UserAuthService } from '../services/user-auth.service';
+import { Router } from '@angular/router';
 
 export interface Register{
+   courseId: number;
    courseName: string;
 }
 
@@ -36,17 +39,21 @@ export class CourseComponent implements OnInit {
 
   register:Register[]=[];
 
-    constructor(private registerService:SavitasoftService){}
+    constructor(private registerService:SavitasoftService, private userAuthService: UserAuthService, private router: Router){}
 
-    public onClick(data:string)
+    public onClick(data:number)
     {
-      console.log(data);
+      if(this.userAuthService.isLoggedIn()){
+        console.log(data);
       
-      this.registerService.postDetails(data,(retval:string)=>{
-        console.log(retval);
-        alert("Created account successfully");
-      })
+        this.registerService.postCourse(data,(retval:string)=>{
+            console.log(retval);
+            alert("Registered successfully");
+        })
+      }else{
+        this.router.navigate(['joinnow']);
+      }
+      
 
-    }
-
+    }   
 }

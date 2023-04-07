@@ -8,29 +8,48 @@
     <div class="register ">
       <h4>Welcome!</h4><br>
       <h2>Sign up</h2><br>
-        <form #f="ngForm" (ngSubmit)="onsignup(f.value)">
-            <div class="mb-3">
-                <label for="exampleInputName" class="form-label">Name</label>
-                <input ngModel type="text" class="form-control" id="exampleInputName"  name="name">
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="onsignup(f.value)">
+            <div class="mb-3 form-group">
+                <label for="" class="form-label">Name</label>
+                <input formControlName="name" type="text" class="form-control" id="exampleInputName"  name="name">
+                <div *ngIf="(form.get('name').touched || form.get('name').dirty) && form.get('name').invalid">
+                  <div class="alert alert-danger" *ngIf="form.get('name').errors?.['required']">Name is required</div>
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="exampleInputNum" class="form-label" >Phone Number</label>
-                <input ngModel type="text" class="form-control" id="exampleInputNum" name="phonenumber">
+              <div class="mb-3 form-group">
+                <label for="" class="form-label" >Phone Number</label>
+                <input formControlName="phonenumber" type="text" class="form-control" id="exampleInputNum" name="phonenumber">
+                <div  *ngIf="(form.get('phonenumber').touched || form.get('phonenumber').dirty) && form.get('phonenumber').invalid">
+                  <div class="alert alert-danger" *ngIf="form.get('phonenumber').errors?.['required']">Phone Number is required</div>
+                  <div class="alert alert-danger" *ngIf="form.get('phonenumber').errors?.['pattern']">Enter valid 10 digit phone number.</div>
               </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label" >Email address</label>
-              <input ngModel type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              </div>
+            <div class="mb-3 form-group">
+              <label for="" class="form-label" >Email address</label>
+              <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              <div  *ngIf="(form.get('email').touched || form.get('email').dirty) && form.get('email').invalid">
+                <div class="alert alert-danger" *ngIf="form.get('email').errors?.['required']">Email is required</div>
+                <div class="alert alert-danger" *ngIf="form.get('email').errors?.['email']">Enter valid email-id.</div>
+             </div>
             </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label" >Password</label>
-              <input ngModel type="password" class="form-control" id="exampleInputPassword1"name="password">
+            <div class="mb-3 form-group">
+              <label for="" class="form-label" >Password</label>
+              <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"name="password">
+              <div *ngIf="form.get('password').touched && form.get('password').invalid">
+                <div *ngIf="form.get('password').errors?.['required']" class="alert alert-danger" >Password is required.</div>
+                <div *ngIf="form.get('password').errors?.['minLength']" class="alert alert-danger" >Password must be atleast 8 characters.</div>
+              </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword2" class="form-label" >Confirm Password</label>
-                <input ngModel type="password" class="form-control" id="exampleInputPassword2"name="confirm">
+            <div class="mb-3 form-group">
+                <label for="" class="form-label" >Confirm Password</label>
+                <input formControlName="confirm" type="password" class="form-control" id="exampleInputPassword2"name="confirm">
+                <div *ngIf="form.get('confirm').touched && form.get('confirm').invalid ">
+                  <div *ngIf="form.get('confirm').errors?.['required']" class="alert alert-danger" >Password is required.</div>
+                  <div *ngIf="form.get('confirm').errors?.['passwordShouldMatch'] " class="alert alert-danger" >Password doesnt match.</div>
+                </div>
               </div>
               <br>
-              <button type="submit" class="btn btn-warning col-lg-12">Create an Account</button>
+              <button type="submit" class="btn btn-warning col-lg-12" [disabled]="form.invalid">Create an Account</button>
               <br>
           </form>
     </div>

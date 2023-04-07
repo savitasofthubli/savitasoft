@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SavitasoftService } from '../savitasoft.service';
+import { SavitasoftService } from '../services/savitasoft.service';
 
 export interface Register{
   name:string;

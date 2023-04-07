@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { RegisterComponent } from './register/register.component';
+import { ListComponent } from './list/list.component';
+import { OtpComponent } from './otp/otp.component';
+import { PhonenumberComponent } from './phonenumber/phonenumber.component';
 
 
 //import { RegisterComponent } from './register/register.component';
@@ -24,15 +28,18 @@ import { RegisterComponent } from './register/register.component';
     JoinnowComponent,
     SignupComponent,
     ContactusComponent,
-    RegisterComponent
-   // RegisterComponent
+    RegisterComponent,
+    ListComponent,
+    OtpComponent,
+    PhonenumberComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [
     

@@ -11,11 +11,11 @@
 
         <div class="offc">  
             <div class="offc2" *ngFor="let cs of course">
-                <div class="box"  (ngSubmit)="onClick(cs.name)" >
+                <div class="box"  (ngSubmit)="onClick(cs.id)" >
                     <img src="{{cs.image}}"><br>
                     <h4 class="mt-2">{{cs.name}}</h4>
                     <p class="mt-2">{{cs.description}}</p>
-                    <button routerLink="register" type="submit" class="btn btn-success btn-lg mt-2">Register Now</button>
+                    <button type="submit" class="btn btn-success btn-lg mt-2">Register Now</button>
                 </div>
                 <br>
             </div>
@@ -27,11 +27,11 @@
         <br>
         <div class="offc">  
             <div class="offc2" *ngFor="let cs of course2">
-                <div class="box"(ngSubmit)="onClick(cs.name)">
+                <div class="box"(ngSubmit)="onClick(cs.id)">
                     <img src="{{cs.image}}"><br>
                     <h4 class="mt-2">{{cs.name}}</h4>
                     <p class="mt-2">{{cs.description}}</p>
-                    <button routerLink="register" type="submit" class="btn btn-success btn-lg mt-2">Register Now</button>
+                    <button type="submit" class="btn btn-success btn-lg mt-2">Register Now</button>
                 </div>
                 <br>
             </div>

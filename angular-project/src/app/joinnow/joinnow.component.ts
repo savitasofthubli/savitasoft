@@ -1,6 +1,9 @@
-import { SavitasoftService } from './../savitasoft.service';
+import { UserAuthService } from './../services/user-auth.service';
+import { UserService } from './../services/user.service';
+import { SavitasoftService } from '../services/savitasoft.service';
 import { Component } from '@angular/core';
-import { FormGroup , FormControl, Validators } from '@angular/forms';
+import { FormGroup , FormControl, Validators, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 export interface Joincourse{
   name:string,
@@ -20,26 +23,47 @@ export class JoinnowComponent {
     password: new FormControl('',[Validators.required,Validators.minLength(8)])
   });
 
-
+  
 
   joincourse: Joincourse[]=[];
 
-  constructor(private ssService : SavitasoftService){
-    this.ssService.getDetails((data: any)=>{
-      this.joincourse = data;
-    })
-  };
+  constructor(private userService:UserService,
+              public userAuthService:UserAuthService,
+              private router: Router
+  ){}
 
-  public onSave(data : any){
+    onSave(data:any){
+    
+    this.userService.onSave(data).subscribe(
+      (response:any)=>{
+        this.userAuthService.setRoles(response.role);
+        this.userAuthService.setToken(response.token);
+
+        const role = response.role[0];
+
+        if(role === 'ADMIN'){
+           this.router.navigate(['home']);
+        }else if(role === 'USER'){
+           this.router.navigate(['home']);
+        }
+        console.log(response.token);
+      },
+      (error)=>{
+        console.log(error);
+        alert(error);
+      }
+    );
 
     console.log(data);
     if(this.form.valid)
     {
       this.form.reset();
     }
-     this.ssService.postDetails(data,(retval : any)=>{
-      console.log("value stored");
-      console.log(retval);
-    })
-  }    
+    
+  } 
+
+ public onForgot(){
+    return true;
+  }
+
 }

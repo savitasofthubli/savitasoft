@@ -17,9 +17,17 @@ export class SavitasoftService {
   }
 
   public postDetails(data:any,callback:any){
-    this.http.post(this.baseURL+"/savitasoft",data)
+    this.http.post(this.baseURL+"/api/v1/auth/register",data)
          .subscribe((data : any)=>{
           callback(data);
          })
   }
+
+  public postCourse(data:any,callback:any){
+    this.http.post(this.baseURL+"/api/v1/auth/register",data)
+         .subscribe((data : any)=>{
+          callback(data);
+         })
+  }
+
 }

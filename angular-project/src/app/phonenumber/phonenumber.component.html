@@ -1,0 +1,17 @@
+
+<div class="contain">
+  <h3>Enter your phone number for verification</h3><br>
+  <div class="align-items-center justify-content-center">
+    <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSend(f.value)" class="col-md-6">
+      <div class="card px-5 py-5">
+        <div class="form-input">
+          <input type="text" name="phoneNumber" placeholder="Phone Number" class="form-control">
+        </div>
+        <button class="btn btn-success mt-4 signup" type="submit" routerLink="otp"> Get OTP</button>
+        <div id="sign-in-button"></div>
+      </div>
+    </form>
+  </div>
+  
+
+  
