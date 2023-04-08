@@ -14,7 +14,7 @@ public class AdmissionController {
     @Autowired
     private AdmissionRepository admissionRepository;
 
-    @PostMapping("/add admission")
+    @PostMapping("/addadmission")
     public Admission addAdmission(@RequestBody Admission admission) {
         return admissionRepository.save(admission);
     }

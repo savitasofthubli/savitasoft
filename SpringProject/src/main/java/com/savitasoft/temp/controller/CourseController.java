@@ -14,13 +14,13 @@ public class CourseController {
     @Autowired
     private CourseRepository courseRepository;
 
-    @PostMapping("/add course")
+    @PostMapping("/addcourse")
     public Course addCourse(@RequestBody Course course)
     {
         return courseRepository.save(course);
     }
 
-    @GetMapping("/get course")
+    @GetMapping("/getcourse")
     public Course getCourse(@RequestBody Long courseId)
     {
         return courseRepository.findById(courseId).get();

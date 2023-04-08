@@ -14,7 +14,7 @@ public class TrainerController {
     @Autowired
     private TrainerRepository trainerRepository;
 
-    @PostMapping("/trainer register")
+    @PostMapping("/trainerregister")
     public Trainer registerTrainer(@RequestBody Trainer trainer)
     {
         return trainerRepository.save(trainer);

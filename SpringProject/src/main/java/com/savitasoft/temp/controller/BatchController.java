@@ -13,7 +13,7 @@ public class BatchController {
     @Autowired
     private BatchRepository batchRepository;
 
-    @PostMapping("/add batch")
+    @PostMapping("/addbatch")
     public Batch addBatch(@RequestBody Batch batch)
     {
         return batchRepository.save(batch);

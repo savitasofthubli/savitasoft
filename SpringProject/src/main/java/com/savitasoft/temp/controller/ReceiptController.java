@@ -14,7 +14,7 @@ public class ReceiptController {
     @Autowired
     private ReceiptRepository receiptRepository;
 
-    @PostMapping("/add receipt")
+    @PostMapping("/addreceipt")
     public Receipt addReceipt(@RequestBody Receipt receipt) {
         return receiptRepository.save(receipt);
     }
