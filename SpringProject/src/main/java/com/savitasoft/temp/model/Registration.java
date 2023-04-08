@@ -59,7 +59,7 @@ public class Registration {
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String parentNumber;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Course> courses = new ArrayList<>();
 
 
