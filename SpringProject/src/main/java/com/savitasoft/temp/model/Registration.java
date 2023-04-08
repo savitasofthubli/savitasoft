@@ -27,7 +27,7 @@ public class Registration {
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String name;
 
-    @Column(name = "phone_number", nullable = false, unique = true)
+    @Column(name = "phoneNumber", nullable = false, unique = true)
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String phoneNumber;
 

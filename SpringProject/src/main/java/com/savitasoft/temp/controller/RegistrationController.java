@@ -26,8 +26,9 @@ public class RegistrationController {
         return registrationRepository.findAll();
     }
     @GetMapping("/registration")
-    public ResponseEntity<Registration> getRegistrationByPhoneNumber(@RequestBody Long phoneNumber)
+    public ResponseEntity<Registration> getRegistrationByPhoneNumber(@RequestBody String phoneNumber)
     {
+        System.out.println(phoneNumber);
          if(registrationRepository.findByPhoneNumber(phoneNumber).isPresent())
              return ResponseEntity.ok(registrationRepository.findByPhoneNumber(phoneNumber).get());
          else
