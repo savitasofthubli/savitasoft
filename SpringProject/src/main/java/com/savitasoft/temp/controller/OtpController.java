@@ -1,5 +1,6 @@
 package com.savitasoft.temp.controller;
 
+import com.savitasoft.temp.model.Registration;
 import com.savitasoft.temp.otpDto.PasswordResetRequest;
 import com.savitasoft.temp.otpDto.PasswordResetResponse;
 import com.savitasoft.temp.otpService.TwilioOtpService;
@@ -21,7 +22,7 @@ public class OtpController {
 	}
 	
 	@PostMapping("/validate")
-	public ResponseEntity<String> ValidateOTP(@RequestBody PasswordResetRequest passwordResetRequest)
+	public ResponseEntity<Registration> ValidateOTP(@RequestBody PasswordResetRequest passwordResetRequest)
 	{
 		return twilioOtpService.validateOTP(passwordResetRequest.getOneTimePassword(), passwordResetRequest.getUsername());
 	}

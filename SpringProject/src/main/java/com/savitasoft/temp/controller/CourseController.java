@@ -3,6 +3,7 @@ package com.savitasoft.temp.controller;
 import com.savitasoft.temp.Repository.CourseRepository;
 import com.savitasoft.temp.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class CourseController {
     private CourseRepository courseRepository;
 
     @PostMapping("/addcourse")
+    @PreAuthorize("USER")
     public Course addCourse(@RequestBody Course course)
     {
         return courseRepository.save(course);
