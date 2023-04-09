@@ -1,0 +1,50 @@
+
+<div class="container">
+   
+    <form [formGroup]="form" #f="ngForm">
+        <h3 class="text-center">Registration form</h3><br><br>
+        <div class="fg">
+            <label for="name" class="form-label" >Name</label>
+            <input formControlName="name" type="text" class="form-control" id="name" value="{{name}}" name="name">
+        </div>
+        <div class="fg">
+            <label for="phonenumber" class="form-label" >Phone Number</label>
+            <input formControlName="phonenumber" type="text" class="form-control" id="phoneNumber" value="{{phoneNumber}}" name="phoneNumber">
+        </div>
+        <div class="fg">
+            <label for="whatsappNumber" class="form-label" >WhatsApp Number</label>
+            <input formControlName="whatsappNumber" type="text" class="form-control" id="whatsappNumber" value="{{whatsappNumber}}" name="whatsappNumber">
+        </div>
+        <div class="fg">
+            <label for="college" class="form-label" >College</label>
+            <input formControlName="college" type="text" class="form-control" id="college"  value="{{college}}"name="college">
+        </div>
+        <div class="fg">
+            <label for="branch" class="form-label" >Branch</label>
+            <input formControlName="branch" type="text" class="form-control" id="branch" value="{{branch}}" name="branch">
+        </div>
+        <div class="fg">
+            <label for="smester" class="form-label" >Semester</label>
+            <input formControlName="semester" type="text" class="form-control" id="semester" value="{{semester}}" name="semester">
+        </div>
+        <div class="fg">
+            <label for="address" class="form-label" >Address</label>
+            <input formControlName="address" type="text" class="form-control" id="address" value="{{address}}" name="address">
+        </div>
+        <div class="fg">
+            <label for="email" class="form-label" >Email</label>
+            <input formControlName="email" type="text" class="form-control" id="email" value="{{email}}" name="email">
+        </div>
+        <div class="fg">
+            <label for="parentNumber" class="form-label" >Parent Number</label>
+            <input formControlName="parentNumber" type="text" class="form-control" id="parentNumber" value="{{parentNumber}}" name="parentNumber">
+        </div>
+        <br>
+
+
+        <div>
+            <button class="btn btn-primary" type="submit" (click)="postdata(f.value)">Submit</button><br>
+
+        </div>
+    </form>
+</div>
