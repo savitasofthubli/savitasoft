@@ -33,7 +33,7 @@ public class TwilioOtpService {
 		
 		PasswordResetResponse passwordResetResponse = new PasswordResetResponse();
 		try {
-		PhoneNumber to = new PhoneNumber("+91"+passwordResetRequest.getUsername());
+		PhoneNumber to = new PhoneNumber("+91"+passwordResetRequest.getPhonenumber());
 		PhoneNumber from = new PhoneNumber(twilioConfig.getTrailNumber());
 		otp = generateOTP();
 		otpMessage = "Dear customer, use this One Time Password (" + otp + ") to log in to your savitasoft account. This OTP will be valid for the next 5 mins.";
@@ -41,7 +41,7 @@ public class TwilioOtpService {
                 to,from,
                 otpMessage)
             .create();
-		otpMap.put(passwordResetRequest.getUsername(), otp);
+		otpMap.put(passwordResetRequest.getPhonenumber(), otp);
 		passwordResetResponse.setOtpStatus("DELIVERED");
 		passwordResetResponse.setMessage(otpMessage);
 		}catch(TwilioException te){
@@ -56,7 +56,7 @@ public class TwilioOtpService {
 	
 	public ResponseEntity<Registration> validateOTP(String userInputOtp, String userName)
 	{
-		if(userInputOtp.equals(otpMap.get(userName)))
+		if(userInputOtp.equals( otpMap.get(userName)))
 		{
 			if(registrationRepository.findByPhoneNumber(userName).isPresent())
 				return ResponseEntity.ok(registrationRepository.findByPhoneNumber(userName).get());

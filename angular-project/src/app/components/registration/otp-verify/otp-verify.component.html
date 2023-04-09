@@ -7,9 +7,9 @@
                 <div class="alert alert-danger" *ngIf="form.get('otp').errors?.['minlength'] || form.get('otp').errors?.['maxlength']">Enter your 6 digit code.</div>
             <br>
             <div>
-                <button class="btn" type="button"  (click)="onClick(f.value)">Verify OTP</button><br><br>
+                <button class="btn" type="button" (click)="onClick(f.value)">Verify OTP</button><br><br>
                 <small>
-                    <a type="button" (click)="onClick2()">Resend OTP?</a>
+                    <a class="link" type="button" (click)="onClick2()">Resend OTP?</a>
                 </small>
             </div>
         </div>

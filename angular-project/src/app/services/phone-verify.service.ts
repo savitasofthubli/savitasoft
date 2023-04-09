@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class PhoneVerifyService {
 
   baseUrl: string ="http://localhost:8080";
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   public postNumber(data: any, callback:any){
     this.httpClient.post(this.baseUrl+"/otp-controller/send",data)
@@ -29,11 +30,8 @@ export class PhoneVerifyService {
     localStorage.clear();
   }
 
-  public postOtp(data: any,callback:any){
-    this.httpClient.post(this.baseUrl+"/otp-controller/validate",data)
-    .subscribe((data:any)=>{
-      callback(data);
-     });
+  public postOtp(data: any){
+    return this.httpClient.post(this.baseUrl+"/otp-controller/validate",data);
   }
 
   public getData(callback: any){

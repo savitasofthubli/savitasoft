@@ -11,7 +11,6 @@ import { AboutComponent } from './components/about/about.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule
+    HttpClientModule
   ],
   providers: [
    

@@ -24,24 +24,42 @@ export class OtpVerifyComponent {
   public get otp(){
     return this.form.get('otp');
   }
-
+  
+  // check(retval:any):boolean{
+  //   if(retval==="Valid otp!"){
+  //     return true;
+  //   }else{
+  //     return false;
+  //   }
+  // }
 
   onClick(data: string)
   {
      let maindata:any = Object.assign(data,JSON.parse(this.phoneVerify.getNumber()));
      console.log(maindata);
-     this.phoneVerify.postOtp(maindata,(retval:any)=>{
-        console.log(retval);
-        alert("Phone number verified successfully");
-        this.phoneVerify.clear();
+     this.phoneVerify.postOtp(maindata).subscribe((response)=>{
+      console.log(response);
+      alert("Otp is validated")
+      this.router.navigate(['phoneNumberVerify/otpVerify/registerForm']);
+      this.phoneVerify.clear();
+      this.registerService.setData(response);
+    },
+    (error)=>{
+      console.log(error);
+      alert("Otp is invalid");
     });
+        // if(this.check(retval)){
+        //   alert("Phone number verified successfully");
+        //   this.router.navigate(['registerForm']);
+        // }else{
+        //   alert("Invalid otp.Verify again");
+        // }
+        
+    
 
     // this.phoneVerify.getData((data:any)=>{
     //    if(data!==null){  
     //       this.registerService.setData(data);
-    //       this.router.navigate(['registerForm']);
-    //    }else{
-    //        this.router.navigate(['registerForm']);
     //    }
     // });
 

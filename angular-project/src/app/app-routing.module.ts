@@ -15,9 +15,7 @@ const routes: Routes = [
   { path:"phoneNumberVerify/otpVerify", component:OtpVerifyComponent },
   { path:"phoneNumberVerify/otpVerify/registerForm", component:RegisterFormComponent },
   { path:"courses/phoneNumberVerify", component:PhoneNoVerifyComponent},
-  { path:"courses/phoneNumberVerify/otpVerify", component:OtpVerifyComponent },
-  { path:"registerForm", component:RegisterFormComponent },
-
+  { path:"courses/phoneNumberVerify/otpVerify", component:OtpVerifyComponent }
 ];
 
 @NgModule({
