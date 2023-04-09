@@ -11,7 +11,7 @@ export class PhoneVerifyService {
   constructor(private httpClient: HttpClient) { }
 
   public postNumber(data: any, callback:any){
-    this.httpClient.post(this.baseUrl,data)
+    this.httpClient.post(this.baseUrl+"/otp-controller/send",data)
                    .subscribe((data)=>{
                     callback(data);
                   });
@@ -29,15 +29,15 @@ export class PhoneVerifyService {
     localStorage.clear();
   }
 
-  public postOtp(data: any, callback:any){
-    this.httpClient.post(this.baseUrl,data)
-                   .subscribe((data)=>{
-                    callback(data);
-                  });
+  public postOtp(data: any,callback:any){
+    this.httpClient.post(this.baseUrl+"/otp-controller/validate",data)
+    .subscribe((data:any)=>{
+      callback(data);
+     });
   }
 
   public getData(callback: any){
-    this.httpClient.get(this.baseUrl)
+    this.httpClient.get(this.baseUrl+"/otp-controller/validate")
                    .subscribe((data:any)=>{
                     callback(data);
                    })

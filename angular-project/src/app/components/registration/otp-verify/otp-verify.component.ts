@@ -36,14 +36,14 @@ export class OtpVerifyComponent {
         this.phoneVerify.clear();
     });
 
-    this.phoneVerify.getData((data:any)=>{
-       if(data!==null){  
-          this.registerService.setData(data);
-          this.router.navigate(['registerForm']);
-       }else{
-           this.router.navigate(['registerForm']);
-       }
-    });
+    // this.phoneVerify.getData((data:any)=>{
+    //    if(data!==null){  
+    //       this.registerService.setData(data);
+    //       this.router.navigate(['registerForm']);
+    //    }else{
+    //        this.router.navigate(['registerForm']);
+    //    }
+    // });
 
   }
 

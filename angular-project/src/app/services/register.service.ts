@@ -22,7 +22,7 @@ export class RegisterService {
     localStorage.clear();
   }
   public postregister(data: any, callback:any){
-    this.httpClient.post(this.baseUrl,data)
+    this.httpClient.post(this.baseUrl+"/registration-controller/register",data)
                    .subscribe((data)=>{
                     callback(data);
                   });
