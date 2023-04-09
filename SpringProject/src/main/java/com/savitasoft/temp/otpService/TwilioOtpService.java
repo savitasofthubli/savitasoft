@@ -1,8 +1,11 @@
 package com.savitasoft.temp.otpService;
 
+import com.savitasoft.temp.Repository.RegistrationRepository;
+import com.savitasoft.temp.model.Registration;
 import com.savitasoft.temp.otpConfig.TwilioConfig;
 import com.savitasoft.temp.otpDto.PasswordResetRequest;
 import com.savitasoft.temp.otpDto.PasswordResetResponse;
+import com.twilio.exception.TwilioException;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import org.apache.http.HttpStatus;
@@ -20,6 +23,8 @@ import java.util.Random;
 public class TwilioOtpService {
 	@Autowired
 	private TwilioConfig twilioConfig;
+	@Autowired
+	private RegistrationRepository registrationRepository;
 	
 	Map<String,String> otpMap= new HashMap<>();
 	
@@ -27,9 +32,9 @@ public class TwilioOtpService {
 	public ResponseEntity<PasswordResetResponse> sendOTPForPasswordReset(PasswordResetRequest passwordResetRequest) {
 		
 		PasswordResetResponse passwordResetResponse = new PasswordResetResponse();
-//		try {
+		try {
 		PhoneNumber to = new PhoneNumber("+91"+passwordResetRequest.getUsername());
-		PhoneNumber from = new PhoneNumber("+17628891424");
+		PhoneNumber from = new PhoneNumber(twilioConfig.getTrailNumber());
 		otp = generateOTP();
 		otpMessage = "Dear customer, use this One Time Password (" + otp + ") to log in to your savitasoft account. This OTP will be valid for the next 5 mins.";
 		Message message = Message.creator(
@@ -39,22 +44,25 @@ public class TwilioOtpService {
 		otpMap.put(passwordResetRequest.getUsername(), otp);
 		passwordResetResponse.setOtpStatus("DELIVERED");
 		passwordResetResponse.setMessage(otpMessage);
-//		}
-//		catch(Exception e)
-//		{
-//			passwordResetResponse.setOtpStatus("FAILED");
-//			passwordResetResponse.setMessage(otpMessage);
-//			return ResponseEntity.status(HttpStatus.SC_CONFLICT).build();
-//		}
+		}catch(TwilioException te){
+			passwordResetResponse.setOtpStatus("FAILED");
+			passwordResetResponse.setMessage(otpMessage);
+			return ResponseEntity.status(HttpStatus.SC_CONFLICT).build();
+		}
 		return ResponseEntity.ok(passwordResetResponse);
 		
 		
 	}
 	
-	public ResponseEntity<String> validateOTP(String userInputOtp,String userName)
+	public ResponseEntity<Registration> validateOTP(String userInputOtp, String userName)
 	{
 		if(userInputOtp.equals(otpMap.get(userName)))
-			return ResponseEntity.ok("Valid OTP!");
+		{
+			if(registrationRepository.findByPhoneNumber(userName).isPresent())
+				return ResponseEntity.ok(registrationRepository.findByPhoneNumber(userName).get());
+			else
+				return ResponseEntity.status(HttpStatus.SC_NOT_FOUND).build();
+		}
 		else
 			return ResponseEntity.status(HttpStatus.SC_UNAUTHORIZED).build();
 		

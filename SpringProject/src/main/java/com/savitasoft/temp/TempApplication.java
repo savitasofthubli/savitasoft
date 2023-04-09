@@ -25,10 +25,7 @@ public class TempApplication {
 	}
 
 	public static void main(String[] args) {
-		ApplicationContext context = SpringApplication.run(TempApplication.class, args);
-		RegistrationRepository repo = context.getBean("registrationRepository",RegistrationRepository.class);
-		Optional<Registration> opt = repo.findByPhoneNumber("9900335766");
-		System.out.println(opt.get());
+		SpringApplication.run(TempApplication.class, args);
 
 	}
 
