@@ -1,48 +1,36 @@
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { CourseComponent } from './course/course.component';
-import { AboutComponent } from './about/about.component';
-import { JoinnowComponent } from './joinnow/joinnow.component';
+import { PhoneNoVerifyComponent } from './components/registration/phone-no-verify/phone-no-verify.component';
+import { OtpVerifyComponent } from './components/registration/otp-verify/otp-verify.component';
+import { RegisterFormComponent } from './components/registration/register-form/register-form.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { CoursesComponent } from './components/courses/courses.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { SignupComponent } from './signup/signup.component';
-import { ContactusComponent } from './contactus/contactus.component';
-import { RegisterComponent } from './register/register.component';
-import { ListComponent } from './list/list.component';
-import { OtpComponent } from './otp/otp.component';
-import { PhonenumberComponent } from './phonenumber/phonenumber.component';
-
-
-//import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PhoneNoVerifyComponent,
+    OtpVerifyComponent,
+    RegisterFormComponent,
     HomeComponent,
-    CourseComponent,
     AboutComponent,
-    JoinnowComponent,
-    SignupComponent,
-    ContactusComponent,
-    RegisterComponent,
-    ListComponent,
-    OtpComponent,
-    PhonenumberComponent
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
-    RouterModule
+    HttpClientModule
   ],
   providers: [
-    
+   
   ],
   bootstrap: [AppComponent]
 })
