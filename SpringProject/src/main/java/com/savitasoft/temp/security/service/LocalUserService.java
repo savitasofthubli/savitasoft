@@ -16,7 +16,7 @@ public class LocalUserService implements UserDetailsService {
     private LocalUserRespository localUserRespository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        LocalUser localUser = localUserRespository.findByPhoneNumber(username).get();
+        final LocalUser localUser = localUserRespository.findByPhoneNumber(username).get();
         if(localUser.getPhoneNumber()!=username)
             return localUser;
         else
