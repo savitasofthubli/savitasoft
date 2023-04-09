@@ -1,64 +1,7 @@
-<nav  class="navbar fixed-top navbar-expand-lg bg-dark ">
-  <div class="container-fluid">
-    <a  class="navbar-brand" routerLink="home"><img id="p1" src="../../assets/tanay2.jpg"></a>
+<a routerLink="home">Home</a><br>
+<a routerLink="about">About</a><br>
+<a routerLink="courses">Courses</a><br>
+<a routerLink="phoneNumberVerify">Register</a><br>
+<br><br>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link text-warning" aria-current="page" routerLink="home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-warning" routerLink="about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-warning" routerLink="course">Courses</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-warning" routerLink="contact">Contact Us</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link text-warning" routerLink="register">Register Now!</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link text-warning" routerLink="list" *ngIf="userService.roleMatch(['ADMIN'])" >List of students</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <button *ngIf="!isLoggedIn()" class="btn btn-outline-warning" type="submit" routerLink="joinnow">Sign in</button>
-        <button *ngIf="isLoggedIn()" class="btn btn-outline-warning" type="submit" (click)="logout()">Sign out</button>
-      </form>
-    </div>
-  </div>
-</nav>
-
-<router-outlet (activate)="onActivate($event)" ></router-outlet>
-
-<footer class="bg-dark text-white pt-5 pb-4">
-  <div class="container text-center text-md-left">
-    <div class="row text-center text-md-left">
-      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">CONTENT</h5>
-        <p><a routerLink="" class="text-white" style="text-decoration:none" >Home</a></p>
-        <p><a routerLink="about" class="text-white" style="text-decoration:none">About Us</a></p>
-        <p><a routerLink="course" class="text-white" style="text-decoration:none">Courses</a></p>
-      </div>
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
-        <p>Address: 1st Floor, Biliangandi Complex, Opp P.C.Jabin Science College,
-          Vidyanagar, HUBLI-580021</p>
-          <p>Telephone: 0836-4265112<br>Mobile: +916363084114  
-          </p>
-          <p>Email-id: sscehubli@gmail.com / shet.rajesh@yahoo.com
-        </p>
-      </div>
-
-    </div>
-  </div>
-
-   <div class="text-center">
-    <div>
-      <p>&copy; savitasoft 2023. All right reserved.</p>
-    </div>
-   </div>
-
-</footer>
+<router-outlet></router-outlet>
