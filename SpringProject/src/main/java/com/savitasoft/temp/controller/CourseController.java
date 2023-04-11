@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/course-controller")
+@RequestMapping("/api/v1/course-controller")
 public class CourseController {
 
     @Autowired
@@ -22,13 +22,13 @@ public class CourseController {
         return courseRepository.save(course);
     }
 
-    @GetMapping("/getcourse")
+    @GetMapping("/ns/getcourse")
     public Course getCourse(@RequestBody Long courseId)
     {
         return courseRepository.findById(courseId).get();
     }
 
-    @GetMapping("/courses")
+    @GetMapping("/ns/courses")
     public List<Course> getAllCourses()
     {
         return courseRepository.findAll();

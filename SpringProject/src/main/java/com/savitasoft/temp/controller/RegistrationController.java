@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/registration-controller")
+@RequestMapping("/api/v1/registration-controller")
 public class RegistrationController {
 
     //You should always have service layer. Modify all code with service layer latter
     @Autowired
     private RegistrationRepository registrationRepository;
 
-    @PostMapping("/register")
+    @PostMapping("/ns/register")
     public Registration register(@RequestBody Registration registration)
     {
         return registrationRepository.save(registration);
@@ -29,7 +29,7 @@ public class RegistrationController {
     {
         return registrationRepository.findAll();
     }
-    @GetMapping("/registration/{phoneNumber}")
+    @GetMapping("/ns/registration/{phoneNumber}")
     public ResponseEntity<Registration> getRegistrationByPhoneNumber(@PathVariable() String phoneNumber)
     {
         if(registrationRepository.findByPhoneNumber(phoneNumber).isPresent())

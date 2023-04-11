@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/batch-controller")
+@RequestMapping("/api/v1/batch-controller")
 public class BatchController {
     @Autowired
     private BatchRepository batchRepository;

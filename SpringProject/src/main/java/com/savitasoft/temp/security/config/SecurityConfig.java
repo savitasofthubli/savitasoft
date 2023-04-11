@@ -30,7 +30,10 @@ public class SecurityConfig {
     {
         http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**","/otp-controller/**","/**")
+                .requestMatchers("/api/v1/auth/**",
+                        "/api/v1/course-controller/ns/**",
+                        "/api/v1/otp/**",
+                        "/api/v1/registration-controller/ns/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

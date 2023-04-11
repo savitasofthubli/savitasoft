@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/receipt-controller")
+@RequestMapping("/api/v1/receipt-controller")
 public class ReceiptController {
 
     @Autowired

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:4200/")
 @RestController
-@RequestMapping("/otp-controller")
+@RequestMapping("/api/v1/otp/otp-controller")
 public class OtpController {
 	@Autowired
 	TwilioOtpService twilioOtpService;
