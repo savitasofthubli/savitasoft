@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PhoneVerifyService } from 'src/app/services/phone-verify.service';
 import { RegisterService } from 'src/app/services/register.service';
 
 export interface RegisterForm{
@@ -23,7 +24,7 @@ export interface RegisterForm{
 })
 export class RegisterFormComponent {
     form= new FormGroup({
-    name: new FormControl('',Validators.required),
+    name: new FormControl('register',Validators.required),
     phoneNumber: new FormControl('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
     whatsappNumber: new FormControl('',Validators.required),
     college: new FormControl('',Validators.required),
@@ -38,13 +39,22 @@ export class RegisterFormComponent {
  });
   
  registerform:RegisterForm;
+ 
 
-constructor( private registerService:RegisterService){}
+constructor( private registerService:RegisterService,private phoneVerifyService:PhoneVerifyService){}
    
-getdata()
+public getdata()
 {
   this.registerform= this.registerService.getData();
 }
+
+public getFromBackend():any{
+  this.phoneVerifyService.getData((data2:any)=>{
+    this.registerform=data2;
+  });
+}
+
+
 
 postdata(data:any){
   if(this.registerService.getData()){

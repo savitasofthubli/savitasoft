@@ -1,7 +1,7 @@
 
 <div class="container">
    
-    <form [formGroup]="form" #f="ngForm">
+    <form [formGroup]="form" #f="ngForm" *ngIf="getFromBackend() || !getFromBackend()">
         <h3 class="text-center">Registration form</h3><br><br>
         <div class="fg">
             <label for="name" class="form-label" >Name</label>

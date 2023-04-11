@@ -33,6 +33,7 @@ export class OtpVerifyComponent {
   //   }
   // }
 
+
   onClick(data: string)
   {
      let maindata:any = Object.assign(data,JSON.parse(this.phoneVerify.getNumber()));
@@ -41,8 +42,8 @@ export class OtpVerifyComponent {
       console.log(response);
       alert("Otp is validated")
       this.router.navigate(['phoneNumberVerify/otpVerify/registerForm']);
-      this.phoneVerify.clear();
       this.registerService.setData(response);
+      
     },
     (error)=>{
       console.log(error);

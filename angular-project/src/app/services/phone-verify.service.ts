@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
 })
 export class PhoneVerifyService {
 
-  baseUrl: string ="http://localhost:8080";
+  baseUrl: string ="http://localhost:8080/api/v1";
+  
+  phoneNo:string;
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
@@ -23,7 +25,8 @@ export class PhoneVerifyService {
   }
 
   public getNumber():string{
-    return localStorage.getItem('phoneNo');
+    this.phoneNo= JSON.parse(localStorage.getItem('phoneNo'));
+    return this.phoneNo;
   }
 
   public clear(){
@@ -35,7 +38,7 @@ export class PhoneVerifyService {
   }
 
   public getData(callback: any){
-    this.httpClient.get(this.baseUrl+"/otp-controller/validate")
+    this.httpClient.get(this.baseUrl+"/registration-controller/ns/registration/${this.phoneNo}")
                    .subscribe((data:any)=>{
                     callback(data);
                    })
