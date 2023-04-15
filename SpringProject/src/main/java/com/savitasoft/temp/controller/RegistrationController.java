@@ -19,7 +19,7 @@ public class RegistrationController {
     @Autowired
     private RegistrationRepository registrationRepository;
 
-    @PostMapping("/ns/register")
+    @PutMapping("/ns/register")
     public Registration register(@RequestBody Registration registration)
     {
         return registrationRepository.save(registration);

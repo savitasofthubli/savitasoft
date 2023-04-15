@@ -15,7 +15,7 @@ public class CourseController {
     @Autowired
     private CourseRepository courseRepository;
 
-    @PostMapping("/addcourse")
+    @PostMapping("/ns/addcourse")
     @PreAuthorize("USER")
     public Course addCourse(@RequestBody Course course)
     {

@@ -23,8 +23,8 @@ public class BatchController {
     {
         return batchRepository.findAll();
     }
-    @GetMapping("/batch")
-    public Batch getBatchById(@RequestBody Long batchId)
+    @GetMapping("/batch/{batchId}")
+    public Batch getBatchById(@PathVariable Long batchId)
     {
         return batchRepository.findById(batchId).get();
     }

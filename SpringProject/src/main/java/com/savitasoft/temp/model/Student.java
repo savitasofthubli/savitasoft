@@ -14,8 +14,5 @@ public class Student {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "registration_id", nullable = false)
-    private Registration registration;
 
 }

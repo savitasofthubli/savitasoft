@@ -19,8 +19,8 @@ public class AdmissionController {
         return admissionRepository.save(admission);
     }
 
-    @GetMapping("/admission")
-    public Admission getAdmissionById(@RequestBody Long admissionId)
+    @GetMapping("/admission/{admissionId}")
+    public Admission getAdmissionById(@PathVariable Long admissionId)
     {
         return admissionRepository.findById(admissionId).get();
     }

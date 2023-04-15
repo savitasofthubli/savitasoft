@@ -20,7 +20,7 @@ public class Batch {
     private String name;
 
     @Column(name = "start_date", nullable = false)
-    private Date startDate;
+    private String startDate;
 
     @Column(name = "session_duration", nullable = false)
     private String sessionDuration;
