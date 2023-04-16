@@ -19,8 +19,8 @@ public class RegistrationController {
     @Autowired
     private RegistrationService registrationService;
 
-    @PutMapping("/ns/register")
-    public Registration register(@RequestBody Registration registration)
+    @PostMapping("/ns/register")
+    public Registration postRegister(@RequestBody Registration registration)
     {
         return registrationService.addregistration(registration);
     }
