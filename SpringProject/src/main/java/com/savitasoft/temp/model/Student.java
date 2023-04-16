@@ -14,5 +14,4 @@ public class Student {
     @Column(name = "id", nullable = false)
     private Long id;
 
-
 }
