@@ -24,6 +24,13 @@ public class RegistrationController {
     {
         return registrationService.addregistration(registration);
     }
+
+    @PutMapping("/ns/putregister")
+    public Registration putRegister(@RequestBody Registration registration)
+    {
+        return registrationService.addregistration(registration);
+    }
+
     @GetMapping("/registrations")
     public List<Registration> getAllRegistrations()
     {

@@ -21,7 +21,15 @@ public class RegistrationService {
 
     public Registration addregistration(Registration registration)
     {
-        return registrationRepository.save(registration);
+        Optional<Registration> opt = registrationRepository.findByPhoneNumber(registration.getPhoneNumber());
+        if(opt.isPresent())
+        {
+            Registration existRegistration = opt.get();
+            existRegistration.setCourses(registration.getCourses());
+            return registrationRepository.save(existRegistration);
+        }
+        else
+            return registrationRepository.save(registration);
     }
 
     public Registration modifyregistration(Registration registration)
