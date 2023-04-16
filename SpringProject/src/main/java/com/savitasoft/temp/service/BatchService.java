@@ -42,8 +42,8 @@ public class BatchService {
         return batchRepository.findAll();
     }
 
-//    public List<Batch> findBatchByCourse(Course course)
-//    {
-//        return batchRepository.findByCourse(course);
-//    }
+    public List<Batch> findBatchByCourse(Long courseId)
+    {
+        return batchRepository.findByCourse_Id(courseId);
+    }
 }
