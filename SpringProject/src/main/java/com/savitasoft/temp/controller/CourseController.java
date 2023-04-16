@@ -2,6 +2,7 @@ package com.savitasoft.temp.controller;
 
 import com.savitasoft.temp.Repository.CourseRepository;
 import com.savitasoft.temp.model.Course;
+import com.savitasoft.temp.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -13,25 +14,25 @@ import java.util.List;
 public class CourseController {
 
     @Autowired
-    private CourseRepository courseRepository;
+    private CourseService courseService;
 
     @PostMapping("/ns/addcourse")
     @PreAuthorize("USER")
     public Course addCourse(@RequestBody Course course)
     {
-        return courseRepository.save(course);
+        return courseService.addCourse(course);
     }
 
     @GetMapping("/ns/getcourse")
     public Course getCourse(@RequestBody Long courseId)
     {
-        return courseRepository.findById(courseId).get();
+        return courseService.findCourse(courseId);
     }
 
     @GetMapping("/ns/courses")
     public List<Course> getAllCourses()
     {
-        return courseRepository.findAll();
+        return courseService.findAll();
     }
 
 }

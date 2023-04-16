@@ -2,6 +2,7 @@ package com.savitasoft.temp.controller;
 
 import com.savitasoft.temp.Repository.BatchRepository;
 import com.savitasoft.temp.model.Batch;
+import com.savitasoft.temp.service.BatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,22 +12,22 @@ import java.util.List;
 @RequestMapping("/api/v1/batch-controller")
 public class BatchController {
     @Autowired
-    private BatchRepository batchRepository;
+    private BatchService batchService;
 
     @PostMapping("/addbatch")
     public Batch addBatch(@RequestBody Batch batch)
     {
-        return batchRepository.save(batch);
+        return batchService.addBatch(batch);
     }
     @GetMapping("/batches")
     public List<Batch> getAllBatches()
     {
-        return batchRepository.findAll();
+        return batchService.findAll();
     }
     @GetMapping("/batch/{batchId}")
     public Batch getBatchById(@PathVariable Long batchId)
     {
-        return batchRepository.findById(batchId).get();
+        return batchService.findBatch(batchId);
     }
 
 }

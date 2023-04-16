@@ -17,26 +17,25 @@ public class RegistrationController {
 
     //You should always have service layer. Modify all code with service layer latter
     @Autowired
-    private RegistrationRepository registrationRepository;
+    private RegistrationService registrationService;
 
     @PutMapping("/ns/register")
     public Registration register(@RequestBody Registration registration)
     {
-        return registrationRepository.save(registration);
+        return registrationService.addregistration(registration);
     }
     @GetMapping("/registrations")
     public List<Registration> getAllRegistrations()
     {
-        return registrationRepository.findAll();
+        return registrationService.findAll();
     }
     @GetMapping("/ns/registration/{phoneNumber}")
     public ResponseEntity<Registration> getRegistrationByPhoneNumber(@PathVariable() String phoneNumber)
     {
-        if(registrationRepository.findByPhoneNumber(phoneNumber).isPresent())
-            return ResponseEntity.ok(registrationRepository.findByPhoneNumber(phoneNumber).get());
+        if(registrationService.getRegistrationByPhoneNumber(phoneNumber).isPresent())
+            return ResponseEntity.ok(registrationService.getRegistrationByPhoneNumber(phoneNumber).get());
         else
             return ResponseEntity.status(HttpStatus.SC_NOT_FOUND).build();
-
     }
 
 }
