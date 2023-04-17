@@ -11,6 +11,9 @@ import { AboutComponent } from './components/about/about.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BatchdetailsComponent } from './components/batchdetails/batchdetails.component';
+import { CoursedetailsComponent } from './components/coursedetails/coursedetails.component';
+import { AdmissionComponent } from './components/admission/admission.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterFormComponent,
     HomeComponent,
     AboutComponent,
-    CoursesComponent
+    CoursesComponent,
+    BatchdetailsComponent,
+    CoursedetailsComponent,
+    AdmissionComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-   
+
   ],
   bootstrap: [AppComponent]
 })

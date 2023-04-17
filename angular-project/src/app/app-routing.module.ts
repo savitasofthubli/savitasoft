@@ -6,6 +6,9 @@ import { PhoneNoVerifyComponent } from './components/registration/phone-no-verif
 import { AboutComponent } from './components/about/about.component';
 import { OtpVerifyComponent } from './components/registration/otp-verify/otp-verify.component';
 import { RegisterFormComponent } from './components/registration/register-form/register-form.component';
+import { CoursedetailsComponent } from './components/coursedetails/coursedetails.component';
+import { BatchdetailsComponent } from './components/batchdetails/batchdetails.component';
+import { AdmissionComponent } from './components/admission/admission.component';
 
 const routes: Routes = [
   { path:"home", component:HomeComponent },
@@ -15,7 +18,13 @@ const routes: Routes = [
   { path:"phoneNumberVerify/otpVerify", component:OtpVerifyComponent },
   { path:"phoneNumberVerify/otpVerify/registerForm", component:RegisterFormComponent },
   { path:"courses/phoneNumberVerify", component:PhoneNoVerifyComponent},
-  { path:"courses/phoneNumberVerify/otpVerify", component:OtpVerifyComponent }
+  { path:"courses/phoneNumberVerify/otpVerify", component:OtpVerifyComponent },
+  { path:"coursedetails", component:CoursedetailsComponent },
+  { path:"batchdetails", component:BatchdetailsComponent},
+  { path:"admission", component:AdmissionComponent },
+
+
+
 ];
 
 @NgModule({

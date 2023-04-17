@@ -1,0 +1,34 @@
+{
+  "registration": [
+    {
+      "id": 101,
+      "studentname": "dfds",
+      "studentoccupation": "dfsd",
+      "fathername": "dfsdf",
+      "fatheroccupation": "xcvv",
+      "dob": "2023-04-12",
+      "address": "sdasd",
+      "mobile": "01234567890",
+      "whatsappnbr": "12345678900",
+      "parentnbr": "12345678900",
+      "email": "rffef@gmail.com",
+      "course": "Java FullStack"
+    },
+    {
+      "studentname": "sachin",
+      "studentoccupation": "Student",
+      "fathername": "dfsdf",
+      "fatheroccupation": "-",
+      "dob": "2023-04-13",
+      "address": "Dharwad",
+      "mobile": "+919538684895",
+      "whatsappnbr": "1234567890-",
+      "parentnbr": "8023423084923840",
+      "email": "sachin@yahoo.com",
+      "course": "Java",
+      "id": 102
+    }
+  ],
+  "student": [],
+  "trainer": []
+}

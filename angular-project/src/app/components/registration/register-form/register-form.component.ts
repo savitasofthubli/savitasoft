@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PhoneVerifyService } from 'src/app/services/phone-verify.service';
 import { RegisterService } from 'src/app/services/register.service';
 
 export interface RegisterForm{
@@ -24,50 +23,39 @@ export interface RegisterForm{
 })
 export class RegisterFormComponent {
     form= new FormGroup({
-    name: new FormControl('register',Validators.required),
-    phoneNumber: new FormControl('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-    whatsappNumber: new FormControl('',Validators.required),
-    college: new FormControl('',Validators.required),
-    branch: new FormControl('',Validators.required),
-    semester: new FormControl('',Validators.required),
-    address: new FormControl('',Validators.required),
-    parentNumber:new FormControl('',Validators.required),
-    email: new FormControl('',[Validators.required,Validators.email]),
+    name:  new FormControl<any>(null,Validators.required),
+    phoneNumber: new FormControl<any>(null,[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+    whatsappNumber: new FormControl(<any>null,Validators.required),
+    college: new FormControl<any>(null,Validators.required),
+    branch: new FormControl<any>(null,Validators.required),
+    semester: new FormControl<any>(null,Validators.required),
+    address: new FormControl<any>(null,Validators.required),
+    parentNumber:new FormControl<any>(null,Validators.required),
+    email: new FormControl<any>(null,[Validators.required,Validators.email]),
     course:new FormGroup({
       cid: new FormControl()
     })
- });
-  
+
+ }
+ )
+
  registerform:RegisterForm;
- 
 
-constructor( private registerService:RegisterService,private phoneVerifyService:PhoneVerifyService){}
-   
-public getdata()
+constructor( private registerService:RegisterService){}
+
+ getdata():any
 {
-  this.registerform= this.registerService.getData();
-}
+  return this.registerService.getData();
 
-public getFromBackend():any{
-  this.phoneVerifyService.getData((data2:any)=>{
-    this.registerform=data2;
-  });
 }
-
 
 
 postdata(data:any){
-  if(this.registerService.getData()){
-    this.registerService.postregister( this.registerService.getData(),(retval:any)=>{
-    console.log(retval);
-    alert("data sent successfully");
-    });
-  }else{
-    this.registerService.postregister( data,(retval:any)=>{
-      console.log(retval);
+    this.registerService.postregister(data).subscribe((response)=>{
+      console.log(response);
       alert("data sent successfully");
-      });
-  }
+      })
+
 }
  public get name(){
   return this.form.get('name');
@@ -82,7 +70,7 @@ public get course(){
   return this.form.get('course');
 }
 public get cid(){
-  return this.form.get('course')?.get('cid');
+  return this.form.get('cid');
 }
 
 public get whatsappNumber(){
@@ -104,4 +92,11 @@ public get parentNumber(){
 public get address(){
   return this.form.get('address');
 }
+
+ // if(this.registerService.getData()){
+  //   this.registerService.postregister(this.registerService.getData(),(retval:any)=>{
+  //   console.log(retval);
+  //   alert("data sent successfully");
+  //   })
+  // }else{
 }

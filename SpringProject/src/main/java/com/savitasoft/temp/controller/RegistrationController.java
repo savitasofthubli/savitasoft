@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+@CrossOrigin(origins = "http://localhost:4200")
 
 @RestController
 @RequestMapping("/api/v1/registration-controller")
@@ -20,17 +21,10 @@ public class RegistrationController {
     private RegistrationService registrationService;
 
     @PostMapping("/ns/register")
-    public Registration postRegister(@RequestBody Registration registration)
+    public Registration register(@RequestBody Registration registration)
     {
         return registrationService.addregistration(registration);
     }
-
-    @PutMapping("/ns/putregister")
-    public Registration putRegister(@RequestBody Registration registration)
-    {
-        return registrationService.addregistration(registration);
-    }
-
     @GetMapping("/registrations")
     public List<Registration> getAllRegistrations()
     {
