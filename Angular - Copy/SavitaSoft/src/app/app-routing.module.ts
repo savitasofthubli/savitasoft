@@ -18,8 +18,8 @@ const routes: Routes = [
   {path:"Register",component:RegisterComponent},
   {path:"AdminviewRegistration",component:AdminviewregistrationComponent},
   {path:"AdminHome",component:AdminhomeComponent},
-  {path:" ",component:HomeComponent},
-  {path:"PhoneNumber",component:PhoneNumberComponent}
+  {path:"PhoneNumber",component:PhoneNumberComponent},
+  {path:"**",component:HomeComponent}
 ];
 
 @NgModule({

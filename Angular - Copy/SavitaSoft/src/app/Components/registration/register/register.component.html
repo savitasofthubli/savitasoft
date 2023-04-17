@@ -1,9 +1,8 @@
 <div *ngIf="otpview" class="container">
-<form  #f="ngForm" [formGroup]="otpForm" >
+<form  #f="ngForm">
   <div  style="margin-top: 70px; text-align: center; " >
     <h1>OTP</h1>
     <p>Enter 6 Digit Verification Code.</p>
-    <hr>
 
    <div class="userInput">
      <input  type="text1" 
@@ -73,8 +72,7 @@
       >
   
   </div>
-    <hr>
-    <p> <a #1 (click)="onClick2()">Resend OTP</a>?</p>    
+    <p> <a #1 class="link" type="button" (click)="onClick2()">Resend OTP?</a></p>    
     <button #bt  type="submit" class="Button1" (click)="onClick()" >Verify OTP </button>
   </div>
 </form>
