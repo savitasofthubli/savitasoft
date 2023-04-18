@@ -111,8 +111,9 @@ export class RegisterComponent {
 
   onClick()
   {
-    var data=this.otp.total;
-     let maindata:any = Object.assign(data,JSON.parse(this.phoneVerify.getNumber()));
+     var data=this.otp.total;
+     let otp2 = {"otp":data}
+     let maindata:any = Object.assign(otp2,JSON.parse(this.phoneVerify.getNumber()));
      console.log(maindata);
      this.phoneVerify.postOtp(maindata).subscribe((response:any)=>{
         alert("Otp is validated")
