@@ -1,4 +1,4 @@
-package com.savitasoft.temp.model;
+package com.savitasoft.temp.course.model;
 
 import jakarta.persistence.*;
 import lombok.*;

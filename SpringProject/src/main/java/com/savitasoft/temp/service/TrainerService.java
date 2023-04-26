@@ -1,8 +1,6 @@
 package com.savitasoft.temp.service;
 
-import com.savitasoft.temp.Repository.CourseRepository;
 import com.savitasoft.temp.Repository.TrainerRepository;
-import com.savitasoft.temp.model.Course;
 import com.savitasoft.temp.model.Trainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

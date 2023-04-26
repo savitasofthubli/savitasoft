@@ -1,8 +1,7 @@
-package com.savitasoft.temp.controller;
+package com.savitasoft.temp.course.controller;
 
-import com.savitasoft.temp.Repository.CourseRepository;
-import com.savitasoft.temp.model.Course;
-import com.savitasoft.temp.service.CourseService;
+import com.savitasoft.temp.course.model.Course;
+import com.savitasoft.temp.course.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

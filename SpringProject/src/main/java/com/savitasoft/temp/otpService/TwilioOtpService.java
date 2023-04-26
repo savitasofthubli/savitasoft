@@ -1,7 +1,7 @@
 package com.savitasoft.temp.otpService;
 
-import com.savitasoft.temp.Repository.RegistrationRepository;
-import com.savitasoft.temp.model.Registration;
+import com.savitasoft.temp.registration.repository.RegistrationRepository;
+import com.savitasoft.temp.registration.model.Registration;
 import com.savitasoft.temp.otpConfig.TwilioConfig;
 import com.savitasoft.temp.otpDto.PasswordResetRequest;
 import com.savitasoft.temp.otpDto.PasswordResetResponse;

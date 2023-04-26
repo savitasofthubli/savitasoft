@@ -1,9 +1,7 @@
-package com.savitasoft.temp.service;
+package com.savitasoft.temp.course.service;
 
-import com.savitasoft.temp.Repository.AdmissionRepository;
-import com.savitasoft.temp.Repository.CourseRepository;
-import com.savitasoft.temp.model.Admission;
-import com.savitasoft.temp.model.Course;
+import com.savitasoft.temp.course.repository.CourseRepository;
+import com.savitasoft.temp.course.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

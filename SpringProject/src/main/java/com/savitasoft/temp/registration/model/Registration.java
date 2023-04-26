@@ -1,4 +1,4 @@
-package com.savitasoft.temp.model;
+package com.savitasoft.temp.registration.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -59,8 +59,7 @@ public class Registration {
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String parentNumber;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Course> courses = new ArrayList<>();
+    private String password;
 
 
 }

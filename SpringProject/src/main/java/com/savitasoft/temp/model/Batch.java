@@ -1,9 +1,8 @@
 package com.savitasoft.temp.model;
 
+import com.savitasoft.temp.course.model.Course;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.sql.Date;
 
 @Data
 @AllArgsConstructor
