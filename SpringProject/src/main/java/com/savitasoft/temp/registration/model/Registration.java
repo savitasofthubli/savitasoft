@@ -1,5 +1,6 @@
 package com.savitasoft.temp.registration.model;
 
+import com.savitasoft.temp.course.model.Course;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -60,6 +61,8 @@ public class Registration {
     private String parentNumber;
 
     private String password;
+
+    private Course course;
 
 
 }

@@ -17,7 +17,7 @@ public class RegistrationService {
 
 
     public Registration addRegistration(Registration registration){
-        List<Registration> list = registrationRepository.findByPhoneNumberOrEmailOrWhatsappNumber(registration.getPhoneNumber(), registration.getEmail(), registration.getWhatsappNumber());
+        List<Registration> list = registrationRepository.findByPhoneNumberOrEmailOrWhatsappNumber(registration.getPhoneNumber(), registration.getPhoneNumber(), registration.getPhoneNumber());
         if(!list.isEmpty())
             throw new RegistrationExist(registration);
         return registrationRepository.save(registration);
