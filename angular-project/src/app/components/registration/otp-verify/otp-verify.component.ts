@@ -36,7 +36,7 @@ export class OtpVerifyComponent {
 
   onClick(data: string)
   {
-     let maindata:any = Object.assign(data,JSON.parse(this.phoneVerify.getNumber()));
+     let maindata:any = Object.assign(data,this.phoneVerify.getNumber());
      console.log(maindata);
      this.phoneVerify.postOtp(maindata).subscribe((response)=>{
       console.log(response);

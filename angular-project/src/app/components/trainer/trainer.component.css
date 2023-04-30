@@ -1,0 +1,11 @@
+form{
+    border-color: black;
+    border-width: 0.0025cm;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 50px 50px;
+}
+
+label{
+    font-weight: bold;
+}

@@ -11,6 +11,9 @@ import { AboutComponent } from './components/about/about.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TrainerComponent } from './components/trainer/trainer.component';
+import { ReceiptComponent } from './components/receipt/receipt.component';
+import { StudentComponent } from './components/student/student.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterFormComponent,
     HomeComponent,
     AboutComponent,
-    CoursesComponent
+    CoursesComponent,
+    TrainerComponent,
+    ReceiptComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
