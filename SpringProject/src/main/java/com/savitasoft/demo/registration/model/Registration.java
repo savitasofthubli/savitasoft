@@ -1,5 +1,6 @@
 package com.savitasoft.demo.registration.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.savitasoft.demo.course.model.Course;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -58,4 +59,7 @@ public class Registration {
     @Column(name = "parent_number", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String parentNumber;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String password;
 }

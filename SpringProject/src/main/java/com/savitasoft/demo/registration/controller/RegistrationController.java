@@ -1,6 +1,5 @@
 package com.savitasoft.demo.registration.controller;
 
-import com.savitasoft.demo.registration.model.Input;
 import com.savitasoft.demo.registration.model.Registration;
 import com.savitasoft.demo.registration.service.RegistrationService;
 import com.savitasoft.demo.security.auth.AuthenticationService;
@@ -8,6 +7,7 @@ import com.savitasoft.demo.security.auth.RegisterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -21,11 +21,15 @@ public class RegistrationController {
     private RegistrationService registrationService;
 
     @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
     private AuthenticationService authenticationService;
     @PostMapping("/addregister")
-    public ResponseEntity<Object> addRegistration(@RequestBody() Input input){
-        Registration reg = registrationService.addRegistration(input.getRegistration());
-        RegisterRequest request =new RegisterRequest(input.getRegistration().getPhoneNumber(),input.getPassword());
+    public ResponseEntity<Object> addRegistration(@RequestBody() Registration input){
+
+        RegisterRequest request =new RegisterRequest(input.getPhoneNumber(),input.getPassword());
+        input.setPassword(passwordEncoder.encode(input.getPassword()));
+        Registration reg = registrationService.addRegistration(input);
         authenticationService.register(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(reg);
     }
