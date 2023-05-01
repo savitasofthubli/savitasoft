@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface RegistrationRepository extends JpaRepository<Registration,Long> {
 
        public List<Registration> findByPhoneNumberOrEmailOrWhatsappNumber(String phonenumber,String whatsappnumber,String email);
-       public Optional<Registration> findByPhoneNumber(String phonenumber);
+       public Registration findByPhoneNumber(String phonenumber);
 }

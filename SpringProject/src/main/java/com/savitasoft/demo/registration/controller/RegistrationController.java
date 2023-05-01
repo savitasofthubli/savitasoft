@@ -37,5 +37,10 @@ public class RegistrationController {
         return ResponseEntity.status(HttpStatus.OK).body(exist);
     }
 
+    @GetMapping("/registration/{data}")
+    public ResponseEntity<Registration> getRegistration(@PathVariable() String data)
+    {
+        return ResponseEntity.ok(registrationService.findByPhoneNumber(data));
+    }
 
 }

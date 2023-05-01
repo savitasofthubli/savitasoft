@@ -42,4 +42,8 @@ public class RegistrationService {
         else
             return false; //Registration does not exist
     }
+    public Registration findByPhoneNumber(String phonenumber)
+    {
+        return registrationRepository.findByPhoneNumber(phonenumber);
+    }
 }

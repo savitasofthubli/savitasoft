@@ -57,12 +57,7 @@ public class TwilioOtpService {
 	public ResponseEntity<Registration> validateOTP(String userInputOtp, String userName)
 	{
 		if(userInputOtp.equals( otpMap.get(userName)))
-		{
-			if(registrationRepository.findByPhoneNumber(userName).isPresent())
-				return ResponseEntity.ok(registrationRepository.findByPhoneNumber(userName).get());
-			else
-				return ResponseEntity.status(HttpStatus.SC_NOT_FOUND).build();
-		}
+				return ResponseEntity.ok(registrationRepository.findByPhoneNumber(userName));
 		else
 			return ResponseEntity.status(HttpStatus.SC_UNAUTHORIZED).build();
 		
