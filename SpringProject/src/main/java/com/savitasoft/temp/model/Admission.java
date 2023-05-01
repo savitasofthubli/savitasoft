@@ -1,6 +1,5 @@
 package com.savitasoft.temp.model;
 
-import com.savitasoft.temp.registration.model.Registration;
 import jakarta.persistence.*;
 import lombok.*;
 

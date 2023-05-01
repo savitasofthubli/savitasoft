@@ -1,11 +1,12 @@
-package com.savitasoft.temp.registration.model;
+package com.savitasoft.temp.Registration.model;
 
-import com.savitasoft.temp.course.model.Course;
+import com.savitasoft.SavitaSoftServer.Course.model.Course;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity

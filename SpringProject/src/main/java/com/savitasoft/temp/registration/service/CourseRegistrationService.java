@@ -1,10 +1,11 @@
-package com.savitasoft.temp.registration.service;
+package com.savitasoft.temp.Registration.service;
 
-import com.savitasoft.temp.course.model.Course;
-import com.savitasoft.temp.course.service.CourseService;
-import com.savitasoft.temp.registration.model.CourseRegistration;
-import com.savitasoft.temp.registration.model.Registration;
-import com.savitasoft.temp.registration.repository.CourseRegistrationRepository;
+
+import com.savitasoft.temp.Course.model.Course;
+import com.savitasoft.temp.Course.service.CourseService;
+import com.savitasoft.temp.Registration.model.CourseRegistration;
+import com.savitasoft.temp.Registration.model.Registration;
+import com.savitasoft.temp.Registration.repository.CourseRegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class CourseRegistrationService {
     private RegistrationService registrationService;
 
     public CourseRegistration addCourseRegistration(CourseRegistration courseRegistration){
-        Course course = courseService.findCourse(courseRegistration.getCourse().getId());
+        Course course = courseService.getCourseById(courseRegistration.getCourse().getId());
         Registration registration = registrationService.getRegistrationById(courseRegistration.getRegistration().getId());
         courseRegistration.setRegistration(registration);
         courseRegistration.setCourse(course);

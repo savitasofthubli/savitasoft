@@ -1,42 +1,30 @@
-package com.savitasoft.temp.registration.controller;
+package com.savitasoft.temp.Registration.controller;
 
-import com.savitasoft.temp.registration.model.Registration;
-import com.savitasoft.temp.registration.service.RegistrationService;
-import com.savitasoft.temp.security.auth.AuthenticationService;
-import com.savitasoft.temp.security.auth.RegisterRequest;
+import com.savitasoft.SavitaSoftServer.Registration.model.Registration;
+import com.savitasoft.SavitaSoftServer.Registration.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@CrossOrigin(origins = "http://localhost:4200")
-
 @RestController
-@RequestMapping("/api/v1/registration-controller")
+@RequestMapping("/api/registration")
+@CrossOrigin(origins = "http://localhost:4200")
 public class RegistrationController {
 
-    //You should always have service layer. Modify all code with service layer latter
     @Autowired
-    private RegistrationService registrationService;
+    private RegistrationService service;
 
-    @Autowired
-    private AuthenticationService authenticationService;
-    @PostMapping("/addregister")
+    @PostMapping
     public ResponseEntity<Object> addRegistration(@RequestBody() Registration registration){
-        Registration reg = registrationService.addRegistration(registration);
-        RegisterRequest request =new RegisterRequest(registration.getPhoneNumber(),registration.getPassword());
-        authenticationService.register(request);
-        return ResponseEntity.status(org.springframework.http.HttpStatus.CREATED).body(reg);
+        Registration reg = service.addRegistration(registration);
+        return ResponseEntity.status(HttpStatus.CREATED).body(reg);
     }
 
     @GetMapping("/checkregistration/{data}")
     public ResponseEntity<Boolean> checkRegistrationExist(@PathVariable() String data)
     {
-        boolean exist = registrationService.checkRegistrationExist(data,data,data);
+        boolean exist = service.checkRegistrationExist(data,data,data);
         return ResponseEntity.status(HttpStatus.OK).body(exist);
     }
-
-
 }

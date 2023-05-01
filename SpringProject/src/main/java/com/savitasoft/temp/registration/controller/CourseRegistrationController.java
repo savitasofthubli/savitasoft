@@ -1,7 +1,7 @@
-package com.savitasoft.temp.registration.controller;
+package com.savitasoft.temp.Registration.controller;
 
-import com.savitasoft.temp.registration.model.CourseRegistration;
-import com.savitasoft.temp.registration.service.CourseRegistrationService;
+import com.savitasoft.SavitaSoftServer.Registration.model.CourseRegistration;
+import com.savitasoft.SavitaSoftServer.Registration.service.CourseRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

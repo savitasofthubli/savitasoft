@@ -1,13 +1,10 @@
-package com.savitasoft.temp.registration.repository;
+package com.savitasoft.temp.Registration.repository;
 
-import com.savitasoft.temp.registration.model.Registration;
+import com.savitasoft.SavitaSoftServer.Registration.model.Registration;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface RegistrationRepository extends JpaRepository<Registration,Long> {
-
-       public List<Registration> findByPhoneNumberOrEmailOrWhatsappNumber(String phonenumber,String whatsappnumber,String email);
-       public Optional<Registration> findByPhoneNumber(String phonenumber);
+    public List<Registration> findByPhoneOrEmailOrWhatsapp(String phone,String email,String whatsapp);
 }

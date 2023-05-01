@@ -1,36 +1,36 @@
-package com.savitasoft.temp.course.model;
+package com.savitasoft.temp.Course.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.antlr.v4.runtime.misc.NotNull;
+
 @Entity
-@Table(name = "course")
+@Table(name="course")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Course {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "name", nullable = false, unique = true)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String name;
+    @Column(name="coursename", length = 50)
+    @NotNull
+    @UniqueElements
+    private String courseName;
 
-    @Lob
-    @Column(name = "description", nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String description;
-
-    @Column(name = "duration", nullable = false)
-    private String duration;
-
-    @Column(name = "course_type", nullable = false)
-    private String courseType;
-
-    @Column(name = "fees", nullable = false)
+    @Column(name="fees")
+    @Min(0)
+    @Max(100000)
     private Integer fees;
+
+
+    @Column(name="duration", precision = 2)
+    @NotNull
+    @Min(0)
+    private Float duration;
 
 }

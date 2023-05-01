@@ -1,68 +1,50 @@
-package com.savitasoft.temp.registration.model;
+package com.savitasoft.temp.Registration.model;
 
-import com.savitasoft.temp.course.model.Course;
 import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "registration")
+@Table(name="registration")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Registration {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "date", nullable = false)
-    java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
 
-    @Column(name = "name", nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+    @Column(name="registrationdate")
+    private LocalDateTime registrationDate =  LocalDateTime.now();
+
+    @Column(name="name", length = 100)
     private String name;
 
-    @Column(name = "phoneNumber", nullable = false, unique = true)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String phoneNumber;
+    @Column(name="phone", length = 20)
+    private String phone;
 
-    @Column(name = "whatsapp_number", nullable = false, unique = true)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String whatsappNumber;
-
-    @Column(name = "college", nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String college;
-
-    @Column(name = "branch", nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String branch;
-
-    @Column(name = "semester", nullable = false)
-    @JdbcTypeCode(SqlTypes.INTEGER)
-    private Integer semester;
-
-    @Column(name = "address", nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String address;
-
-    @Column(name = "email", nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+    @Column(name="email", length = 50)
     private String email;
 
-    @Column(name = "parent_number", nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String parentNumber;
+    @Column(name="address", length = 255)
+    private String address;
 
+    @Column(name="whatsapp", length = 20)
+    private String whatsapp;
+
+    @Column(name="college", length = 100)
+    private String college;
+
+    @Column(name="branch", length = 25)
+    private String branch;
+
+    @Column(name="semester")
+    private Integer semester;
+
+    @Column(name="password", length = 50)
     private String password;
-
-    private Course course;
-
-
 }
