@@ -1,5 +1,6 @@
 package com.savitasoft.demo.registration.controller;
 
+import com.savitasoft.demo.registration.model.Input;
 import com.savitasoft.demo.registration.model.Registration;
 import com.savitasoft.demo.registration.service.RegistrationService;
 import com.savitasoft.demo.security.auth.AuthenticationService;
@@ -22,9 +23,9 @@ public class RegistrationController {
     @Autowired
     private AuthenticationService authenticationService;
     @PostMapping("/addregister")
-    public ResponseEntity<Object> addRegistration(@RequestBody() Registration registration){
-        Registration reg = registrationService.addRegistration(registration);
-        RegisterRequest request =new RegisterRequest(registration.getPhoneNumber(),registration.getPassword());
+    public ResponseEntity<Object> addRegistration(@RequestBody() Input input){
+        Registration reg = registrationService.addRegistration(input.getRegistration());
+        RegisterRequest request =new RegisterRequest(input.getRegistration().getPhoneNumber(),input.getPassword());
         authenticationService.register(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(reg);
     }

@@ -58,7 +58,4 @@ public class Registration {
     @Column(name = "parent_number", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String parentNumber;
-
-    private String password;
-
 }
