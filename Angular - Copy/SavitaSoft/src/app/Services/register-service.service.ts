@@ -15,9 +15,13 @@ export class RegisterServiceService {
     localStorage.setItem("registerData",JSON.stringify(data));
   }
 
+<<<<<<< HEAD
   public getData():any{
     return JSON.parse(localStorage.getItem("registerData"));
   }
+=======
+
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
 
   public clear(){
     localStorage.clear();

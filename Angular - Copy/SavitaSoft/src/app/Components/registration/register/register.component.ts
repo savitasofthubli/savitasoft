@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { Student } from '../../Objective/Common.objects';
+=======
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CourseService } from '../../Courses/courses.service';
 import { PhoneServiceService } from 'src/app/Services/phone-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { RegisterServiceService } from 'src/app/Services/register-service.service';
+<<<<<<< HEAD
 
 export interface Otp{
   otp: string;
+=======
+import { Otp } from '../../common/common.object';
+
+export interface Otp1{
+  otp1: string;
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
 }
 
 export interface RegisteredCourse{
@@ -41,9 +51,13 @@ export interface RegisterForm{
 })
 export class RegisterComponent {
 
+<<<<<<< HEAD
   public onkeyup1(txt: HTMLInputElement) : void {
     txt.focus();
   }
+=======
+
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
  
   otp :Otp ={txt1:"",txt2:"",txt3:"",txt4:"",txt5:"",txt6:"",total:""};
 
@@ -60,7 +74,11 @@ export class RegisterComponent {
   }
 
   otpForm= new FormGroup({
+<<<<<<< HEAD
     otp: new FormControl('',[Validators.required, Validators.minLength(6),Validators.maxLength(6)])
+=======
+    otp1: new FormControl('',[Validators.required, Validators.minLength(6),Validators.maxLength(6)])
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
   })
 
   form= new FormGroup({
@@ -91,7 +109,11 @@ export class RegisterComponent {
    whatsappNumber: '',
    college: '',
    branch: '',
+<<<<<<< HEAD
    semester: 0,
+=======
+   semester:0,
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
    address: '',
    email: '',
    parentNumber: '',
@@ -100,13 +122,18 @@ export class RegisterComponent {
  
  registerview:boolean=false;
 
+<<<<<<< HEAD
   constructor(private phoneVerify: PhoneServiceService, private router: Router, private registerService:RegisterServiceService,private courseservice:CourseServiceService){
+=======
+  constructor(private phoneVerify: PhoneServiceService, private router: Router, private registerService:RegisterServiceService,private courseservice:CourseService){
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
     this.courseservice.getcourses((data:any)=>{
         this.coursedetail=data;
       })
   }
 
   
+<<<<<<< HEAD
   public get otp(){
     return this.form.get('otp');
   }
@@ -116,6 +143,19 @@ export class RegisterComponent {
      let maindata:any = Object.assign(data,JSON.parse(this.phoneVerify.getNumber()));
      console.log(maindata);
      this.phoneVerify.postOtp(maindata).subscribe((response:RegisterForm)=>{
+=======
+  public get tp1(){
+    return this.form.get('otp1');
+  }
+
+  onClick()
+  {
+     var data=this.otp.total;
+     let otp2 = {"otp":data}
+     let maindata:any = Object.assign(otp2,JSON.parse(this.phoneVerify.getNumber()));
+     console.log(maindata);
+     this.phoneVerify.postOtp(maindata).subscribe((response:any)=>{
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
         alert("Otp is validated")
         console.log(response);
        // alert("Otp is validated")
@@ -174,6 +214,11 @@ export class RegisterComponent {
   }
 
   postdata(data:RegisterForm){
+<<<<<<< HEAD
+=======
+
+    data.courses = [{id:1,name:'', description:'', duration:'', courseType:'', fees:0}]
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
     console.log(JSON.stringify(data));
     this.registerService.postregister(data).subscribe((response)=>{
       console.log(response);
@@ -251,6 +296,7 @@ public studentcourse(scourse: any){
       txt.focus();
     }
 
+<<<<<<< HEAD
     public transferResponseToForm(response : RegisterForm){
       this.form.get('name').setValue(response.name);
       this.form.get('address').setValue(response.address);
@@ -262,6 +308,21 @@ public studentcourse(scourse: any){
       this.form.get('parentNumber').setValue(response.parentNumber);
       this.form.get('semester').setValue(response.semester);
     }
+=======
+  public transferResponseToForm(response:RegisterForm){
+     
+    this.form.get('name')?.setValue(response.name);
+    this.form.get('address')?.setValue(response.address);
+    this.form.get('phoneNumber')?.setValue(response.phoneNumber);
+    this.form.get('parentNumber')?.setValue(response.parentNumber);
+    this.form.get('whatsappNumber')?.setValue(response.whatsappNumber);
+    this.form.get('semester')?.setValue(response.semester);
+    this.form.get('college')?.setValue(response.college);
+    this.form.get('branch')?.setValue(response.branch);
+    this.form.get('email')?.setValue(response.email);
+
+  }
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
 
 
   

@@ -25,8 +25,5 @@ public class Receipt {
     @Column(name = "amount_paid", nullable = false)
     private String amountPaid;
 
-    @ManyToOne
-    @JoinColumn(name = "admission_id", nullable = false)
-    private Admission admission;
 
 }

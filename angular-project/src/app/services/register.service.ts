@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RegisterService {
-  baseUrl: string ="http://localhost:8080/api/v1";
+  baseUrl: string ="http://localhost:8080";
 
 
   constructor(private httpClient: HttpClient) { }
@@ -21,11 +21,10 @@ export class RegisterService {
   public clear(){
     localStorage.clear();
   }
-  public postregister(data: any, callback:any){
-    this.httpClient.post(this.baseUrl+"/registration-controller/register",data)
-                   .subscribe((data)=>{
-                    callback(data);
-                  });
+  public postregister(data: any){
+   return  this.httpClient.put(this.baseUrl+"/api/v1/registration-controller/ns/register",data)
+
+
   }
 
 }

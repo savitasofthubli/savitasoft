@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.swing.event.ListDataEvent;
 import java.util.List;
+@CrossOrigin(origins = "http://localhost:4200")
 
 @RestController
-@RequestMapping("/trainer-controller")
+@RequestMapping("/api/v1/trainer-controller")
 public class TrainerController {
     @Autowired
     private TrainerRepository trainerRepository;

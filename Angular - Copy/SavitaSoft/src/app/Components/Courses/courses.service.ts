@@ -7,6 +7,11 @@ import { Student } from '../Objective/Common.objects';
 })
 export class CourseService {
 
+<<<<<<< HEAD
+=======
+  baseUrl: string ="http://localhost:8080";
+
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
   baseCoursesUrl : string = "http://localhost:3000/registration";
   baseStudentUrl: string =" http://localhost:3000/registration";
 
@@ -19,6 +24,14 @@ export class CourseService {
     })
   }
 
+<<<<<<< HEAD
+=======
+  public getcourses(callback : any){
+    this.httpClient.get(this.baseUrl+"/api/v1/course-controller/ns/courses").subscribe((data :any)=>{
+             callback(data);
+    });
+   }
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
 
   
   public saveStudent (student : Student) : void{

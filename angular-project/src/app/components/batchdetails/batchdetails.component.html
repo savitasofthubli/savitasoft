@@ -1,0 +1,121 @@
+<div class="container" style="margin:50px; padding:20px" >
+    <table class="table table-striped table-inverse table-responsive">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">StartDate</th>
+            <th scope="col">SessionDuration</th>
+            <th scope="col">Start Time</th>
+            <th scope="col">No Of Seats</th>
+            <th scope="col">Course</th>
+            <th scope="col">Trainer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let b of batch">
+            <td>{{b.id}}</td>
+            <td>{{b.name}}</td>
+            <td>{{b.startDate}}</td>
+            <td>{{b.sessionDuration}}</td>
+            <td>{{b.startTime}}</td>
+            <td>{{b.noOfSeats}}</td>
+            <td >{{b.cname}}</td>
+            <td >{{b.tname}}</td>
+            <td>
+                <button type="button" class="btn btn-outline-danger ">Delete</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-danger " (click)="loaddata(b)">Modify</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-warning" (click)="Ondelete(b.id)" >Delete</button>
+            </td>
+        </tbody>
+      </table>   
+</div>
+<button class="btn btn-primary" (click)="addview()" style="margin-left: auto;">Add Batch</button>
+<div *ngIf="view  modifyview" class="container">
+    <form [formGroup]="form" #f="ngForm" (ngSubmit)="Onclick(f.value)">
+        <h3 class="text-center">Add Batch Details</h3><br><br>
+        <div class="fg">
+            <label for="name" class="form-label" >Name</label>
+            <input formControlName="name" type="text" class="form-control" id="name"  name="name">
+        </div>
+        <div class="fg">
+            <label for="startDate" class="form-label" >StartDate </label>
+            <input formControlName="startDate" type="text" class="form-control" id="startDate"  name="startDate">
+        </div>
+        <div class="fg">
+            <label for="startTime" class="form-label" >Start Time</label>
+            <input formControlName="startTime" type="text" class="form-control" id="startTime"  name="startTime">
+        </div>
+        <div class="fg">
+            <label for="noOfSeats" class="form-label" >No of Seats </label>
+            <input formControlName="noOfSeats" type="text" class="form-control" id="noOfSeats"  name="noOfSeats">
+        </div>
+        <div class="fg">
+            <label for="sessionDuration" class="form-label" >Session Duration</label>
+            <input formControlName="sessionDuration" type="text" class="form-control" id="sessionDuration"  name="sessionDuration">
+        </div>
+        <div formGroupName="course">
+            <label for="cid" class="form-label">Course</label>
+        <select formControlName="cid" name="cid" id="cid" class="form-control">
+            <option>Course</option>
+            <option *ngFor="let b of batch" value="{{b.cid}}">{{b.cname}}</option>
+        </select>
+    </div>
+    <div formGroupName="trainer">
+        <label for="tid" class="form-label">Trainer</label>
+        <select formControlName="tid" name="cid" id="tid" class="form-control">
+            <option>Trainer</option>
+            <option *ngFor="let b of batch" value="{{b.tid}}">{{b.tname}}</option>
+        </select>
+    </div>
+        <br>
+        <div>
+            <button class="btn btn-primary" type="submit"(click)="Onclick(f.value)" >Add</button><br>
+
+        </div>
+    </form>
+   </div>
+   <div *ngIf="modifyview  view" class="container">
+    <form [formGroup]="form" #f="ngForm" >
+        <h3 class="text-center">Modify Course</h3><br><br>
+        <div class="fg">
+            <input formControlName="id" type="hidden" class="form-control" id="id"  name="id" value="{{bdetail.id}}">
+            <label for="name" class="form-label" >Name</label>
+            <input formControlName="name" type="text" class="form-control" id="name"  name="name" value="{{bdetail.name}}">
+        </div>
+        <div class="fg">
+            <label for="startDate" class="form-label" >Start Date</label>
+            <input formControlName="startDate" type="text" class="form-control" id="startDate"  name="startDate" value="{{bdetail.startDate}}">
+        </div>
+        <div class="fg">
+            <label for="startTime" class="form-label" >Start Time</label>
+            <input formControlName="startTime" type="text" class="form-control" id="startTime"  name="courseType" value="{{bdetail.startTime}}">
+        </div>
+        <div class="fg">
+            <label for="noOfSeats" class="form-label" >No of Seats</label>
+            <input formControlName="noOfSeats" type="text" class="form-control" id="noOfSeats" name="noOfSeats" value="{{bdetail.noOfSeats}}">
+        </div>
+        <div formGroupName="course">
+            <select formControlName="cid" name="cid" id="cid" class="form-control">
+                <option>Course</option>
+                <option *ngFor="let b of batch" value="{{b.cid}}">{{b.cname}}</option>
+            </select>
+        </div>
+        <div formGroupName="trainer">
+            <select formControlName="tid" name="cid" id="tid" class="form-control">
+                <option>Trainer</option>
+                <option *ngFor="let b of batch" value="{{b.tid}}">{{b.tname}}</option>
+            </select>
+        </div>
+      
+        <br>
+        <div>
+            <button class="btn btn-primary" type="submit"(click)="OnModify(f.value)" >Add</button><br>
+
+        </div>
+    </form>
+   </div>

@@ -2,31 +2,33 @@ package com.savitasoft.temp.controller;
 
 import com.savitasoft.temp.Repository.AdmissionRepository;
 import com.savitasoft.temp.model.Admission;
+import com.savitasoft.temp.service.AdmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@CrossOrigin(origins = "http://localhost:4200")
 
 @RestController
-@RequestMapping("/admission-controller")
+@RequestMapping("/api/v1/admission-controller")
 public class AdmissionController {
 
     @Autowired
-    private AdmissionRepository admissionRepository;
+    private AdmissionService admissionService;
 
     @PostMapping("/addadmission")
     public Admission addAdmission(@RequestBody Admission admission) {
-        return admissionRepository.save(admission);
+        return admissionService.addAdmission(admission);
     }
 
-    @GetMapping("/admission")
-    public Admission getAdmissionById(@RequestBody Long admissionId)
+    @GetMapping("/admission/{admissionId}")
+    public Admission getAdmissionById(@PathVariable Long admissionId)
     {
-        return admissionRepository.findById(admissionId).get();
+        return admissionService.findAdmission(admissionId);
     }
     @GetMapping("/admissions")
     public List<Admission> getAllAdmissions(){
-        return admissionRepository.findAll();
+        return admissionService.findAll();
     }
 
 }

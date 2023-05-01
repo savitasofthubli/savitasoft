@@ -21,7 +21,11 @@ export class PhoneServiceService {
     localStorage.setItem('phoneNo',JSON.stringify(phoneNo));
   }
 
+<<<<<<< HEAD
   public getNumber():string | null{
+=======
+  public getNumber():any{
+>>>>>>> d04195455fd910390d31f8858e8538fbc52c55d4
     return localStorage.getItem('phoneNo');
   }
 

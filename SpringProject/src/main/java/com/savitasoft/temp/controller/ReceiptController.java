@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@CrossOrigin(origins = "http://localhost:4200")
 
 @RestController
-@RequestMapping("/receipt-controller")
+@RequestMapping("/api/v1/receipt-controller")
 public class ReceiptController {
 
     @Autowired
