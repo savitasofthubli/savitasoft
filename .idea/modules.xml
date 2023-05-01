@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/SpringProject/SpringProject.iml" filepath="$PROJECT_DIR$/SpringProject/SpringProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/server/Student/Student.iml" filepath="$PROJECT_DIR$/server/Student/Student.iml" />
       <module fileurl="file://$PROJECT_DIR$/server/course/course.iml" filepath="$PROJECT_DIR$/server/course/course.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringProject/demo.iml" filepath="$PROJECT_DIR$/SpringProject/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/server/SpringProject/maven-1.iml" filepath="$PROJECT_DIR$/server/SpringProject/maven-1.iml" />
       <module fileurl="file://$PROJECT_DIR$/server/registration/registration.iml" filepath="$PROJECT_DIR$/server/registration/registration.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/savitasoft.iml" filepath="$PROJECT_DIR$/.idea/savitasoft.iml" />
