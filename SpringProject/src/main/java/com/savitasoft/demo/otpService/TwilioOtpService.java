@@ -34,7 +34,7 @@ public class TwilioOtpService {
 		PasswordResetResponse passwordResetResponse = new PasswordResetResponse();
 		try {
 		PhoneNumber to = new PhoneNumber("+91"+passwordResetRequest.getPhonenumber());
-		PhoneNumber from = new PhoneNumber("+17628891424");
+		PhoneNumber from = new PhoneNumber("+13203616346");
 		otp = generateOTP();
 		otpMessage = "Dear customer, use this One Time Password (" + otp + ") to log in to your savitasoft account. This OTP will be valid for the next 5 mins.";
 		Message message = Message.creator(

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class TwilioConfig {
 
 	private String accountSid;
-	private String authToken="aa0181bbc8cdddfd1223e8bea2fc3d64";
-	private String trailNumber = "+17628891424";
+	private String authToken;
+	private String trailNumber;
 
 }
