@@ -12,12 +12,6 @@
         <module name="maven-1" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="course" target="11" />
-      <module name="maven-1" target="17" />
-      <module name="registration" target="11" />
-      <module name="Student" target="11" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

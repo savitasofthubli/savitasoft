@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/courseregistration")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://15.206.159.116:4200")
 public class CourseRegistrationController {
 
     @Autowired
