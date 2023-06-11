@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.0</version>
+		<version>3.1.0-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.savitasoft</groupId>
@@ -93,7 +93,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>savitasoft</finalName>
 	</build>
 	<repositories>
 		<repository>
