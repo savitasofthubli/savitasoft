@@ -1,0 +1,154 @@
+<app-navbar></app-navbar>
+
+<div class="registration-form">
+    
+        <div>
+                <h1 style="text-align: center;font-weight:1000;color: #06BBCC;">REGISTRATION</h1>
+                <p style="text-align: center; font-weight: 500;">Enter your Phone Number to register</p>
+        </div>
+        <form [formGroup]="formGroup">
+            <div class="alert alert-danger" *ngIf="invalidres">Number is already Registered</div>
+
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input #txtphone type="text" class="form-control item" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber"
+            (focus)="onPhoneFocus()"
+            (blur)="onPhoneBlur(txtphone.value)"
+            (click)="onPhoneClick()"
+            (keyup.enter)="onPhoneBlur(txtphone.value)"
+            >
+            <div class="alert alert-danger" *ngIf="phoneNumber!.invalid && phoneNumber!.touched">
+                <div style="border-radius: 10px;" *ngIf="phoneNumber!.errors!['required']">Phone Number is Required</div>
+                <div style="border-radius: 10px;" *ngIf="phoneNumber!.errors!['pattern']">Only Digits Are Allowed</div>
+                <div style="border-radius: 10px;" *ngIf="phoneNumber!.errors!['maxlength']">Phone number can be maximum of 10 digits</div>
+            </div>
+        </div>
+        <div class="btnsub">
+            <button  *ngIf="submitbtn" class="btn btn-primary" type="submit" (click)="onPhoneBlur(txtphone.value)" style="border-radius: 10px;">Submit</button>
+        </div>
+
+
+        <div *ngIf="formView || newUser">
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control item" id="name"  name="name" formControlName="name">
+            <div class="alert alert-danger" *ngIf="name!.invalid && name!.touched">
+                <div *ngIf="name!.errors!['required']">Name is Required</div>
+                <div *ngIf="name!.errors!['pattern']">Only Alphabets Are Allowed.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control item" id="email" name="email" formControlName="email">
+            <div class="alert alert-danger" *ngIf="email!.invalid && email!.touched">
+                <div *ngIf="email!.errors!['required']">Email is Required</div>
+                <div *ngIf="email!.errors!['pattern']">Invalid email</div>
+                <div *ngIf="email!.errors!['maxlength']">Email can be of maximum 50 chars</div>
+                <div *ngIf="email!.errors!['RegistrationExist']">Email already exist</div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="text" class="form-control item" id="whatsappNumber" name="whatsappNumber" formControlName="whatsappNumber">
+            <div class="alert alert-danger" *ngIf="whatsappNumber!.invalid && whatsappNumber!.touched">
+                <div *ngIf="whatsappNumber!.errors!['required']">WhatsApp is Required</div>
+                <div *ngIf="whatsappNumber!.errors!['pattern']">WhatsApp Should Be Digits</div>
+                <div *ngIf="whatsappNumber!.errors!['maxlength']">WhatsApp Should have maximum of only 10digits</div>
+                <div *ngIf="whatsappNumber!.errors!['RegistrationExist']">This number exist</div>
+              </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="parentNumber">ParentNumber</label>
+            <input type="text" class="form-control item" id="parentNumber" name="parentNumber" formControlName="parentNumber">
+            <div class="alert alert-danger" *ngIf="college!.invalid && college!.touched">
+                <div *ngIf="parentNumber!.errors!['required']">ParentNumber is Required</div>
+                <div *ngIf="parentNumber!.errors!['pattern']">arentNumber Should be Digits</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="college">College</label>
+            <input  type="text" formControlName="college" class="form-control item" name="college" id="college">
+            <div class="alert alert-danger" *ngIf="college!.invalid && college!.touched">
+                <div *ngIf="college!.errors!['required']">College is Required</div>
+                <div *ngIf="college!.errors!['pattern']">College Should Be Alphabets</div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="branch">Branch</label>
+          <input  type="text" formControlName="branch" class="form-control item" name="branch" id="branch">
+          <div class="alert alert-danger" *ngIf="branch!.invalid && branch!.touched">
+              <div *ngIf="branch!.errors!['required']" style="border-radius: 10px;">Branch is Required</div>
+              <div *ngIf="branch!.errors!['pattern']">Branch Should Contain Alphabets</div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea  type="text" formControlName="address" class="form-control item" name="address" id="address" cols="44"></textarea>
+            <div class="alert alert-danger" *ngIf="address!.invalid && address!.touched">
+                <div *ngIf="address!.errors!['required']">Address is Required</div>
+                <div *ngIf="address!.errors!['pattern']">Address Should Be Alphabets</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="semester">Semester</label>
+            <input  type="text" formControlName="semester" class="form-control item" name="semester" id="semester">
+            <div class="alert alert-danger" *ngIf="semester!.invalid && semester!.touched">
+                <div *ngIf="semester!.errors!['required']">Semester is Required</div>
+                <div *ngIf="semester!.errors!['pattern']">Branch Should Contain Digits</div>
+            </div>
+        </div>
+    <br> 
+        <div *ngIf="courseView || newUser" >
+            <div class="form-group" style="text-align: center;">
+                <label for="courses" style="padding-right: 10px;">Courses </label>
+                 <select id="courses" class="form-Group item" #selectcourse style="width: 250px;height: 50px; font-size: 17px;">
+                    <option class="text-center">Choose course</option>
+                    <option class="list-group-item" value="{{c.id}}" *ngFor="let c of courses">{{c.name}} </option>
+                 </select>
+                </div>
+                <br>
+                <div style="text-align:center">
+                 <button class="btn btn-primary create-account" (click)="onAddCourse(selectcourse)" style="align-content: center;">Add Course</button>
+                </div>
+                <div>
+                  <ul class="form-group">
+                      <li class="form-control item" *ngFor="let fc of formCourses.controls">{{ getCourseName(fc.value)}}</li>
+                  </ul>
+                </div>
+           </div>
+
+           <div class="form-group">
+            <div style="text-align: center;margin-top: 50px;">
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                </div>
+           </div>
+
+        <div style="text-align: center;">
+            <button type="button" class="btn btn-block register-btn" (click)="addRegistration()" [disabled]="formGroup.valid">Register Now</button>
+        </div>
+    </div>
+    </form>
+    <!-- <div class="social-media">
+        <h5>Sign up with social media</h5>
+        <div class="social-icons">
+            <a href="#"><i class="icon-social-facebook" title="Facebook"></i></a>
+            <a href="#"><i class="icon-social-google" title="Google"></i></a>
+            <a href="#"><i class="icon-social-twitter" title="Twitter"></i></a>
+        </div>
+    </div> -->
+</div>
+
+
+<app-footersection></app-footersection>
