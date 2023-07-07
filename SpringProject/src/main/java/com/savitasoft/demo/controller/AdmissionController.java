@@ -1,13 +1,13 @@
 package com.savitasoft.demo.controller;
 
+import com.savitasoft.demo.commons.Constants;
 import com.savitasoft.demo.model.Admission;
 import com.savitasoft.demo.service.AdmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin(origins = "http://15.206.159.116:4200")
-
+@CrossOrigin(origins = Constants.crossOrigins)
 @RestController
 @RequestMapping("/api/v1/admission-controller")
 public class AdmissionController {

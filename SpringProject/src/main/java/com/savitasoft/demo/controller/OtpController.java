@@ -1,6 +1,7 @@
 package com.savitasoft.demo.controller;
 
 
+import com.savitasoft.demo.commons.Constants;
 import com.savitasoft.demo.otpDto.PasswordResetRequest;
 import com.savitasoft.demo.otpDto.PasswordResetResponse;
 import com.savitasoft.demo.otpService.TwilioOtpService;
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://15.206.159.116:4200")
+@CrossOrigin(origins = Constants.crossOrigins)
 @RestController
 @RequestMapping("/api/v1/otp/otp-controller")
 public class OtpController {

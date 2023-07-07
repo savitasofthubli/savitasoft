@@ -2,12 +2,13 @@ package com.savitasoft.demo.controller;
 
 
 import com.savitasoft.demo.Repository.ReceiptRepository;
+import com.savitasoft.demo.commons.Constants;
 import com.savitasoft.demo.model.Receipt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin(origins = "http://15.206.159.116:4200")
+@CrossOrigin(origins = Constants.crossOrigins)
 
 @RestController
 @RequestMapping("/api/v1/receipt-controller")

@@ -1,5 +1,6 @@
 package com.savitasoft.demo.registration.controller;
 
+import com.savitasoft.demo.commons.Constants;
 import com.savitasoft.demo.registration.model.Registration;
 import com.savitasoft.demo.registration.service.RegistrationService;
 import com.savitasoft.demo.security.auth.AuthenticationService;
@@ -10,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://15.206.159.116:4200")
+@CrossOrigin(origins = Constants.crossOrigins)
 
 @RestController
 @RequestMapping("/api/v1/registration-controller")

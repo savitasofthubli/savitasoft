@@ -1,4 +1,4 @@
-FROM openjdk:17
-ADD target/Savitasoft.jar Savitasoft.jar
+FROM openjdk:17-alpine
+ADD target/savitasoft.jar savitasoft.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","Savitasoft.jar"]
+ENTRYPOINT ["java","-jar","savitasoft.jar"]

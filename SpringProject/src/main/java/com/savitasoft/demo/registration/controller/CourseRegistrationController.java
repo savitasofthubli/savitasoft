@@ -1,5 +1,6 @@
 package com.savitasoft.demo.registration.controller;
 
+import com.savitasoft.demo.commons.Constants;
 import com.savitasoft.demo.registration.model.CourseRegistration;
 import com.savitasoft.demo.registration.service.CourseRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/courseregistration")
-@CrossOrigin(origins = "http://15.206.159.116:4200")
+@CrossOrigin(origins = Constants.crossOrigins)
 public class CourseRegistrationController {
 
     @Autowired
